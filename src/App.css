@@ -36,3 +36,32 @@
     transform: rotate(360deg);
   }
 }
+
+
+
+
+.blinking{
+  animation:blinkingText 2.5s infinite ease-in-out;
+}
+@keyframes blinkingText{
+  0% {
+    opacity:0;
+}
+30% {
+    opacity:0.8;
+}
+50% {
+  opacity:1;
+}
+70% {
+  opacity:1;
+}
+90% {
+  opacity:0.9;
+}
+100% {
+    opacity:0;
+}
+}
+
+
