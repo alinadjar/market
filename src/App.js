@@ -6,6 +6,13 @@ import Slide1 from './images/slide1.png';
 import headerLOGO from './images/headerLOGO.png';
 
 import Pace from 'react-pace-progress'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCoffee } from '@fortawesome/free-solid-svg-icons'
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
+import { faUserCircle } from '@fortawesome/free-solid-svg-icons'
+import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons'
+import { faHome } from '@fortawesome/free-solid-svg-icons'
+import { faListUl } from '@fortawesome/free-solid-svg-icons'
 
 
 
@@ -23,7 +30,7 @@ class App extends Component {
   componentDidMount() {
     setTimeout(() => {
       this.setState({ startupBlinking: !this.state.startupBlinking });
-    }, 6000)
+    }, 1000) // 5150
   }
 
   render() {
@@ -32,7 +39,7 @@ class App extends Component {
     if (this.state.startupBlinking) {
       content = (
         <>
-          <Pace color="#27ae60" style={{position: 'fixed', top: 0, left: 0}} height={5} color='#d90912' />
+          <Pace style={{ position: 'fixed', top: 0, left: 0 }} height={5} color='#d90912' />
           <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '100px' }}>
             <img className='blinking' src={headerLOGO} alt="header logo" style={{ width: '40%', maxWidth: '100%' }} />
           </div>
@@ -42,63 +49,81 @@ class App extends Component {
     else {
       content = (
         <div className="">
-          <header>
+          <header style={{ position: 'fixed', width: '100%', zIndex: 100, backgroundColor: 'bisque' }} >
             <div className="row flex-column-reverse flex-lg-row" style={{ margin: 0 }}>
               {/* <div className="container-fluid"> */}
-              <div className="col-lg-9" style={{ display: 'flex', alignItems: 'center', justifyContent: 'left' }}>
+              <div className="col-lg-9 col-12" style={{ display: 'flex', alignItems: 'center', justifyContent: 'left' }}>
                 <img className='d-none d-lg-block' src={headerLOGO} alt="header logo" style={{ width: '180px', maxWidth: '100%' }} />
-                <form style={{ width: '75%', margin: '0 auto' }}>
-                  <div className="">
-                    <div className="input-group mb-2">
-                      <div className="input-group-prepend">
-                        <button className="input-group-text" type="submit" style={{ backgroundColor: '#28a745', borderColor: '28a745' }} >Q</button>
+                <div className='col-lg-9'>
+                  <form style={{ width: '100%', margin: '0 auto' }}>
+                    <div className="">
+                      <div className="input-group mb-2">
+                        <div className="input-group-prepend">
+                          <button className="input-group-text" type="submit"
+                            style={{
+                              backgroundColor: '#28a745',
+                              borderWidth: '1px 1px 1px',
+                              borderStyle: 'solid none solid solid',
+                              borderRight: 'none',
+                              borderColor: '#28a745',
+                              color: '#FFF'
+                            }} >Q</button>
+                        </div>
+                        <input type="text" className="form-control" id="inlineFormInputGroup" placeholder="search kala..."
+                          style={{ borderColor: '#28a745' }} />
                       </div>
-                      <input type="text" className="form-control" id="inlineFormInputGroup" placeholder="search kala..."
-                        style={{ borderColor: '#28a745' }} />
                     </div>
-                  </div>
-                </form>
+                  </form>
+                </div>
               </div>
-              <div className="col-lg-3" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <div className="col-lg-3 col-12" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <img className='d-block d-lg-none' src={headerLOGO} alt="header logo" style={{ width: '150px', maxWidth: '100%', alignItems: 'left' }} />
-                <div>
-                  <button type="button" className="btn btn-success">Success</button>
-                  <button type="button" className="btn btn-outline-success">Success</button>
+                <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'nowrap' }}>
+                  <button type="button" className="btn btn-success col-xs-6" style={{ marginRight: '0.4em' }} >
+                    <FontAwesomeIcon icon={faShoppingCart} />
+                    <span style={{ padding: '0.2em' }}>سبدخرید</span>
+                  </button>
+                  <button type="button" className="btn btn-outline-success col-xs-6">
+                    <FontAwesomeIcon icon={faUserCircle} />
+                    <span style={{ padding: '0.2em' }}>ورود/عضویت</span>
+                  </button>
                 </div>
               </div>
               {/* </div> */}
             </div>
             <div>
-              <nav className="row" style={{ margin: 0 }}>
+              <nav className="row" style={{ margin: 0, padding: '.9em 0' }}>
                 <div className='col-3 col-md-3 text-center'>
-                  <div>
+                  <div className='d-none d-sm-inline-block'>
                     <span className='d-none d-md-inline-block pr-2'>
                       صفحه اصلی
-            </span>
+                    </span>
+                    <FontAwesomeIcon icon={faShoppingCart} size="lg" />
                   </div>
                 </div>
                 <div className='col-3 col-md-3 text-center'>
-                  <div>
+                  <div className='d-none d-sm-inline-block'>
                     <span className='d-none d-md-inline-block pr-2'>
                       صفحه اصلی
             </span>
+                    <FontAwesomeIcon icon={faListUl} size="lg" />
                   </div>
                 </div>
                 <div className='col-3 col-md-3 text-center'>
-                  <div>
+                  <div className='d-none d-sm-inline-block'>
                     <span className='d-none d-md-inline-block pr-2'>
                       صفحه اصلی
             </span>
+                    <FontAwesomeIcon icon={faHome} size="lg" />
                   </div>
                 </div>
                 <div className='col-3 col-md-3 text-center'>
-                  <div>
+                  <div className='d-none d-sm-inline-block'>
                     <a href='/'>
                       <span className='d-none d-md-inline-block pr-2'>
                         صفحه اصلی
               </span>
-                      <span className='Icon icon-home'>
-                      </span>
+                      <FontAwesomeIcon icon={faMapMarkerAlt} size="lg" />
                     </a>
                   </div>
                 </div>
@@ -153,36 +178,26 @@ class App extends Component {
             </form>
           </div>
 
-          <nav className="row" style={{ position: 'fixed', bottom: 0, width: '100%', backgroundColor: '#FDD', margin: 0 }}>
+          <nav className="row d-xs-inline-block d-sm-none" style={{ position: 'fixed', bottom: 0, width: '100%', backgroundColor: 'bisque', margin: 0, padding: '.9em 0' }}>
             <div className='col-3 col-md-3 text-center'>
-              <div>
-                <span className='d-xs-inline-block d-md-none pr-2'>
-                  صفحه اصلی
-            </span>
+              <div className=''>
+                <FontAwesomeIcon icon={faShoppingCart} size="lg" />
               </div>
             </div>
             <div className='col-3 col-md-3 text-center'>
-              <div>
-                <span className='d-xs-inline-block d-md-none pr-2'>
-                  صفحه اصلی
-            </span>
+              <div className=''>
+                <FontAwesomeIcon icon={faListUl} size="lg" />
               </div>
             </div>
             <div className='col-3 col-md-3 text-center'>
-              <div>
-                <span className='d-xs-inline-block d-md-none pr-2'>
-                  صفحه اصلی
-            </span>
+              <div className=''>
+                <FontAwesomeIcon icon={faHome} size="lg" />
               </div>
             </div>
             <div className='col-3 col-md-3 text-center'>
-              <div>
+              <div className=''>
                 <a href='/'>
-                  <span className='d-xs-inline-block d-md-none pr-2'>
-                    صفحه اصلی
-              </span>
-                  <span className='Icon icon-home'>
-                  </span>
+                  <FontAwesomeIcon icon={faMapMarkerAlt} size="lg" />
                 </a>
               </div>
             </div>
