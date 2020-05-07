@@ -1,18 +1,34 @@
 import React, { Component } from 'react';
+
+
 import logo from './logo.svg';
 import './App.css';
 
-import Slide1 from './images/slide1.png';
+import Slide1 from './images/slide1.jpg';
+import Slide2 from './images/slide2.jpg';
 import headerLOGO from './images/headerLOGO.png';
 
 import Pace from 'react-pace-progress'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCoffee, faPhone, faPhoneAlt, faMailBulk, faBarcode, faEnvelope, faEnvelopeSquare, faEnvelopeOpen } from '@fortawesome/free-solid-svg-icons'
+import { faPhone, faBarcode, faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons'
 import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons'
 import { faHome } from '@fortawesome/free-solid-svg-icons'
 import { faListUl } from '@fortawesome/free-solid-svg-icons'
+
+
+
+// import 'jquery';
+// import 'popper.js/dist/popper';
+// import 'bootstrap/dist/js/bootstrap';
+// import $ from 'jquery';
+// import Popper from 'popper.js';
+
+
+import OwlCarousel from 'react-owl-carousel';
+import 'owl.carousel/dist/assets/owl.carousel.css';
+import 'owl.carousel/dist/assets/owl.theme.default.css';
 
 
 
@@ -134,7 +150,7 @@ class App extends Component {
 
           <div style={{ width: '100%', margin: '0 auto', marginTop: '180px', paddingTop: '20px' }}>
 
-
+            {/* Categories */}
             <div className='row' style={{ margin: '1.5rem auto' }}>
 
               <div className='col-6 col-sm-4 col-md-3 col-lg-2' style={{ marginTop: '1rem', padding: '0px 0.5rem' }}>
@@ -259,13 +275,24 @@ class App extends Component {
               </div>
 
             </div>
-            <div className='row' style={{direction:'rtl', margin: 0}}>
-              <div className='col-md-4 col-sm-12'>
+
+
+            {/* Banner */}
+            <div className='row' style={{ margin: '20px auto' }}>
+              <a href='/' style={{ width: '100%' }}>
+                <img src={require('./images/CrossBanners/crossBanner2.jpg')} alt='سبدتو پر کن' style={{ width: '100%' }} />
+              </a>
+            </div>
+
+
+            {/* Slider */}
+            <div className='row' style={{ direction: 'rtl', margin: 0, height: '250px', overflow: 'hidden' }}>
+              <div className='col-md-4 d-none d-md-block' style={{ height: '100%' }}>
                 <img className='rounded img-fluid' src={require('./images/Mayonaise2.jpg')}
-                      style={{  height: '300px'}} />
+                  style={{ height: '300px', margin: '0 auto', display: 'block' }} />
               </div>
-              <div className='col-md-8 col-sm-12'>
-                <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
+              <div className='col-md-8 col-sm-12' style={{ height: '100%' }}>
+                <div id="carouselExampleIndicators" className="carousel slide" data-interval="2000" data-ride="carousel">
                   <ol className="carousel-indicators">
                     <li data-target="#carouselExampleIndicators" data-slide-to="0" className="active"></li>
                     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -273,13 +300,13 @@ class App extends Component {
                   </ol>
                   <div className="carousel-inner">
                     <div className="carousel-item active">
-                      <img className="d-block w-100" src={Slide1} alt="First slide" />
+                      <img className="d-block w-100" src={Slide1} alt="First slide" style={{ width: '100%', maxHeight: '30%' }} />
                     </div>
                     <div className="carousel-item">
-                      <img className="d-block w-100" src={Slide1} alt="Second slide" />
+                      <img className="d-block w-100" src={Slide2} alt="Second slide" style={{ width: '100%', maxHeight: '30%' }} />
                     </div>
                     <div className="carousel-item">
-                      <img className="d-block w-100" src={Slide1} alt="Third slide" />
+                      <img className="d-block w-100" src={Slide1} alt="Third slide" style={{ width: '100%', maxHeight: '30%' }} />
                     </div>
                   </div>
                   <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -290,28 +317,62 @@ class App extends Component {
                     <span className="carousel-control-next-icon" aria-hidden="true"></span>
                     <span className="sr-only">Next</span>
                   </a>
-                </div>  
+                </div>
               </div>
             </div>
-            <div className='row' style={{ margin: 0 }}>
-              <form className='p-5'>
-                <div className="form-group">
-                  <label htmlFor="exampleInputEmail1">Email address</label>
-                  <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
-                  <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
-                </div>
-                <div className="form-group">
-                  <label htmlFor="exampleInputPassword1">Password</label>
-                  <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password" />
-                </div>
-                <div className="form-check">
-                  <input type="checkbox" className="form-check-input" id="exampleCheck1" />
-                  <label className="form-check-label" htmlFor="exampleCheck1">Check me out</label>
-                </div>
-                <button type="submit" className="btn btn-primary">Submit</button>
-              </form>
+
+
+            {/* 4Scroll */}
+            <div class='container-fluid' style={{ margin: '20px auto' }}>
+              <OwlCarousel items={4}
+                className="owl-theme"
+                loop
+                nav={true}
+                rewind={true}
+                dots={false}
+                slideBy={1}
+                autoplay={false}
+                smartSpeed={500}
+                margin={30} >
+                <div><img className="img rounded" src={require('./images/4Scroll/1.jpg')} /></div>
+                <div><img className="img rounded" src={require('./images/4Scroll/2.jpg')} /></div>
+                <div><img className="img rounded" src={require('./images/4Scroll/3.jpg')} /></div>
+                <div><img className="img rounded" src={require('./images/4Scroll/4.jpg')} /></div>
+              </OwlCarousel>
             </div>
 
+
+            {/* Banner */}
+            <div className='row' style={{ margin: 0 }}>
+              <a href='/' style={{ width: '100%' }}>
+                <img src={require('./images/CrossBanners/crossBanner1.jpg')} alt='سبدتو پر کن' style={{ width: '100%' }} />
+              </a>
+            </div>
+
+            {/* 3Scroll */}
+            <div class='container-fluid' style={{ margin: '20px auto' }}>
+              <OwlCarousel items={3}
+                className="owl-theme"
+                loop
+                nav={true}
+                rewind={true}
+                dots={false}
+                slideBy={1}
+                autoplay={false}
+                smartSpeed={500}
+                margin={30} >
+                <div><img className="img rounded" src={require('./images/3Scroll/1.jpg')} /></div>
+                <div><img className="img rounded" src={require('./images/3Scroll/2.jpg')} /></div>
+                <div><img className="img rounded" src={require('./images/3Scroll/3.jpg')} /></div>
+              </OwlCarousel>
+            </div>
+
+
+
+
+
+
+            {/* Nav Bottom */}
             <nav className="row d-xs-inline-block d-sm-none" style={{ position: 'fixed', bottom: 0, width: '100%', backgroundColor: 'bisque', margin: 0, padding: '.9em 0', zIndex: 200 }}>
               <div className='col-3 col-md-3 text-center'>
                 <div className=''>
@@ -340,8 +401,12 @@ class App extends Component {
           </div>
 
 
-          <div style={{ borderTop: '2px solid #bbb', width: '100%', margin: '0 auto' }}></div>
 
+
+
+
+          {/* Footer Content */}
+          <div style={{ borderTop: '2px solid #bbb', width: '100%', margin: '0 auto' }}></div>
           <footer style={{ marginTop: '2rem' }}>
             <div className='row' style={{ direction: 'rtl', margin: 0 }}>
               <div className='col-12 col-sm-6' style={{ height: '200px' }}>
@@ -391,9 +456,10 @@ class App extends Component {
               </div>
             </div>
           </footer>
-
           <div style={{ borderTop: '2px solid #bbb', width: '80%', margin: '0 auto' }}></div>
           <p style={{ textAlign: 'center', fontSize: '.8rem', marginTop: '.5rem' }}>&copy;Copyright 2020 - Tabarok Industrial Group Co.</p>
+
+
         </div>
       );
     }
