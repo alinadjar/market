@@ -75,6 +75,8 @@ class App extends Component {
 
           <div style={{ width: '100%', margin: '0 auto', marginTop: '180px', paddingTop: '20px' }}>
 
+            
+
             {/* Categories */}
             <CategoryBoxes />
 
@@ -142,7 +144,7 @@ class App extends Component {
 
             {/* Banner */}
             <Banner picAddr={'CrossBanners/crossBanner1.jpg'} alt={'سبدتو پر کن'} />
-            
+
 
             {/* 3Scroll */}
             <div class='container-fluid' style={{ margin: '20px auto' }}>

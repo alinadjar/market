@@ -7,6 +7,9 @@ import 'flickity/css/flickity.css'
 
 import './landingPage.css';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faShoppingBasket, faCartPlus } from '@fortawesome/free-solid-svg-icons'
+
 class Landing extends Component {
     constructor(props) {
         super(props);
@@ -108,53 +111,36 @@ class Landing extends Component {
         return (
             <div>
                 <section style={{
-                    boxShadow: '0 8px 6px -6px rgba(68, 68, 68, 0.35)', margin: '40px auto', padding: '5px', paddingBottom:'40px',
+                    boxShadow: '0 8px 6px -6px rgba(68, 68, 68, 0.35)', margin: '40px auto', padding: '5px', paddingBottom: '40px',
                     background: 'linear-gradient(135deg, rgb(255, 255, 255) 20%, rgb(255, 255, 255) 80%)', borderRadius: '8px',
                 }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', padding: '0 2%' }}>
-                        <div><a href="/" style={{ fontSize: '0.9rem', color: '#007bFF'}}> مشاهده همه</a></div>
-                        <h3><a href='/' style={{ fontSize: '1.1rem', color: '#444'}}> لبنیات</a></h3>
+                        <div><a href="/" style={{ fontSize: '0.9rem', color: '#007bFF' }}> مشاهده همه</a></div>
+                        <h3><a href='/' style={{ fontSize: '1.1rem', color: '#444' }}> لبنیات</a></h3>
                     </div>
                     <div className="myCarousel">
                         <div className="carousel-cell">
-                            <div style={{ marginTop: '50px', fontFamily: 'IRANSans' }}>
-                                <div className='mmm' style={{}}>
-                                    <span style={{ border: '2px solid #7F7', borderRadius: '50%', position: 'relative', zIndex: 200 }}>
+                            <div style={{ marginTop: '50px' }}>
+                                <div className='mmm'>
+                                    <span>
                                         <button style={{ background: 'none', border: 'none', }}>
-                                            <span style={{ color: '#7F9' }}>+</span>
+                                            <span style={{ color: '#28a745', fontWeight: 'bold' }}>+</span>
                                         </button>
                                     </span>
-                                    <a href='/' style={{ fontFamily: 'IRANSans', fontSize: '1.2em', textDecoration: 'none' }}>
+                                    <a href='/' style={{ textDecoration: 'none' }}>
                                         <div>
                                             <img src={require('../../images/products/9.jpg')} className='img-responsive' />
-                                            <span style={{
-                                                fontFamily: "'IRANSans', sans-serif", fontSize: '0.7em',
-                                                backgroundColor: '#1baf19',
-                                                borderRadius: '5px',
-                                                padding: '5px',
-                                                position: 'absolute',
-                                                right: '8%',
-                                                bottom: '40%',
-                                                color: '#FFF'
-                                            }}>تخفیف 14 %</span>
+                                            <span className='spanDiscount'>تخفیف 14 %</span>
                                         </div>
-                                        <div style={{ padding: '0 15px' }}>
-                                            <b style={{
-                                                fontFamily: 'inherit',
-                                                display: 'flex',
-                                                justifyContent: 'space-between',
-                                                fontSize: '0.9rem',
-                                                color: '#333',
-                                                padding: '2rem 0px 1rem',
-                                                direction: 'rtl'
-                                            }}>
+                                        <div className='bWrapper'>
+                                            <b>
                                                 <span style={{
                                                     fontFamily: 'inherit',
                                                     lineHeight: 1.5
                                                 }}>10,212 تومان</span>
-                                                <small style={{ textDecoration: 'line-through' }}>11,875</small>
+                                                <small>11,875</small>
                                             </b>
-                                            <h4 style={{ fontSize: '0.8rem', lineHeight: 1.5, textAlign: 'center', color: '#333' }}>شامپو صورت و بدن آبی گلرنگ ۲۸۰ گرمی</h4>
+                                            <h4>شامپو صورت و بدن آبی گلرنگ ۲۸۰ گرمی</h4>
                                         </div>
                                     </a>
                                 </div>
@@ -520,12 +506,12 @@ class Landing extends Component {
 
 
                 <section style={{
-                    boxShadow: '0 8px 6px -6px rgba(68, 68, 68, 0.35)', margin: '40px auto', padding: '5px', paddingBottom:'40px',
+                    boxShadow: '0 8px 6px -6px rgba(68, 68, 68, 0.35)', margin: '40px auto', padding: '5px', paddingBottom: '40px',
                     background: 'linear-gradient(135deg, rgb(255, 255, 255) 20%, rgb(255, 255, 255) 80%)', borderRadius: '8px',
                 }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', padding: '0 2%' }}>
-                        <div><a href="/" style={{ fontSize: '0.9rem', color: '#007bFF'}}> مشاهده همه</a></div>
-                        <h3><a href='/' style={{ fontSize: '1.1rem', color: '#444'}}> لبنیات</a></h3>
+                        <div><a href="/" style={{ fontSize: '0.9rem', color: '#007bFF' }}> مشاهده همه</a></div>
+                        <h3><a href='/' style={{ fontSize: '1.1rem', color: '#444' }}> لبنیات</a></h3>
                     </div>
                     <div className="myCarousel">
                         <div className="carousel-cell">
@@ -928,423 +914,430 @@ class Landing extends Component {
                         </div>
                     </div>
                 </section>
+
+
+
+                {/* Banner */}
+                <Banner picAddr={'CrossBanners/crossBanner4.jpg'} alt={'سبدتو پر کن'} />
+                <Banner picAddr={'CrossBanners/crossBanner5.jpg'} alt={'سبدتو پر کن'} />
+
+
+
+
+                <section style={{
+                    boxShadow: '0 8px 6px -6px rgba(68, 68, 68, 0.1)', margin: '40px auto', padding: '5px', paddingBottom: '40px',
+                    background: 'linear-gradient(135deg, rgb(255, 255, 255) 20%, rgb(255, 255, 255) 80%)', borderRadius: '8px',
+                }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', padding: '0 2%' }}>
+                        <div><a href="/" style={{ fontSize: '0.9rem', color: '#007bFF' }}> مشاهده همه</a></div>
+                        <h3><a href='/' style={{ fontSize: '1.1rem', color: '#444' }}> لبنیات</a></h3>
+                    </div>
+                    <div className="myCarousel">
+                        <div className="carousel-cell">
+                            <div style={{ marginTop: '50px', fontFamily: 'IRANSans' }}>
+                                <div className='mmm' style={{}}>
+                                    <span style={{ border: '2px solid #7F7', borderRadius: '50%', position: 'relative', zIndex: 200 }}>
+                                        <button style={{ background: 'none', border: 'none', }}>
+                                            <span style={{ color: '#7F9' }}>+</span>
+                                        </button>
+                                    </span>
+                                    <a href='/' style={{ fontFamily: 'IRANSans', fontSize: '1.2em', textDecoration: 'none' }}>
+                                        <div>
+                                            <img src={require('../../images/products/9.jpg')} className='img-responsive' />
+                                            <span style={{
+                                                fontFamily: "'IRANSans', sans-serif", fontSize: '0.7em',
+                                                backgroundColor: '#1baf19',
+                                                borderRadius: '5px',
+                                                padding: '5px',
+                                                position: 'absolute',
+                                                right: '8%',
+                                                bottom: '40%',
+                                                color: '#FFF'
+                                            }}>تخفیف 14 %</span>
+                                        </div>
+                                        <div style={{ padding: '0 15px' }}>
+                                            <b style={{
+                                                fontFamily: 'inherit',
+                                                display: 'flex',
+                                                justifyContent: 'space-between',
+                                                fontSize: '0.9rem',
+                                                color: '#333',
+                                                padding: '2rem 0px 1rem',
+                                                direction: 'rtl'
+                                            }}>
+                                                <span style={{
+                                                    fontFamily: 'inherit',
+                                                    lineHeight: 1.5
+                                                }}>10,212 تومان</span>
+                                                <small style={{ textDecoration: 'line-through' }}>11,875</small>
+                                            </b>
+                                            <h4 style={{ fontSize: '0.8rem', lineHeight: 1.5, textAlign: 'center', color: '#333' }}>شامپو صورت و بدن آبی گلرنگ ۲۸۰ گرمی</h4>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="carousel-cell">
+                            <div style={{ marginTop: '50px', fontFamily: 'IRANSans' }}>
+                                <div className='mmm' style={{}}>
+                                    <span style={{ border: '2px solid #7F7', borderRadius: '50%', position: 'relative', zIndex: 200 }}>
+                                        <button style={{ background: 'none', border: 'none', }}>
+                                            <span style={{ color: '#7F9' }}>+</span>
+                                        </button>
+                                    </span>
+                                    <a href='/' style={{ fontFamily: 'IRANSans', fontSize: '1.2em', textDecoration: 'none' }}>
+                                        <div>
+                                            <img src={require('../../images/products/8.jpg')} className='img-responsive' />
+                                            <span style={{
+                                                fontFamily: "'IRANSans', sans-serif", fontSize: '0.7em',
+                                                backgroundColor: '#1baf19',
+                                                borderRadius: '5px',
+                                                padding: '5px',
+                                                position: 'absolute',
+                                                right: '8%',
+                                                bottom: '40%',
+                                                color: '#FFF'
+                                            }}>تخفیف 14 %</span>
+                                        </div>
+                                        <div style={{ padding: '0 15px' }}>
+                                            <b style={{
+                                                fontFamily: 'inherit',
+                                                display: 'flex',
+                                                justifyContent: 'space-between',
+                                                fontSize: '0.9rem',
+                                                color: '#333',
+                                                padding: '2rem 0px 1rem',
+                                                direction: 'rtl'
+                                            }}>
+                                                <span style={{
+                                                    fontFamily: 'inherit',
+                                                    lineHeight: 1.5
+                                                }}>10,212 تومان</span>
+                                                <small style={{ textDecoration: 'line-through' }}>11,875</small>
+                                            </b>
+                                            <h4 style={{ fontSize: '0.8rem', lineHeight: 1.5, textAlign: 'center', color: '#333' }}>شامپو صورت و بدن آبی گلرنگ ۲۸۰ گرمی</h4>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="carousel-cell">
+                            <div style={{ marginTop: '50px', fontFamily: 'IRANSans' }}>
+
+                                <div className='mmm' style={{}}>
+                                    <span style={{ border: '2px solid #7F7', borderRadius: '50%', position: 'relative', zIndex: 200 }}>
+                                        <button style={{ background: 'none', border: 'none', }}>
+                                            <span style={{ color: '#7F9' }}>+</span>
+                                        </button>
+                                    </span>
+                                    <a href='/' style={{ fontFamily: 'IRANSans', fontSize: '1.2em', textDecoration: 'none' }}>
+                                        <div>
+                                            <img src={require('../../images/products/7.jpg')} className='img-responsive' />
+                                            <span style={{
+                                                fontFamily: "'IRANSans', sans-serif", fontSize: '0.7em',
+                                                backgroundColor: '#1baf19',
+                                                borderRadius: '5px',
+                                                padding: '5px',
+                                                position: 'absolute',
+                                                right: '8%',
+                                                bottom: '40%',
+                                                color: '#FFF'
+                                            }}>تخفیف 14 %</span>
+                                        </div>
+                                        <div style={{ padding: '0 15px' }}>
+                                            <b style={{
+                                                fontFamily: 'inherit',
+                                                display: 'flex',
+                                                justifyContent: 'space-between',
+                                                fontSize: '0.9rem',
+                                                color: '#333',
+                                                padding: '2rem 0px 1rem',
+                                                direction: 'rtl'
+                                            }}>
+                                                <span style={{
+                                                    fontFamily: 'inherit',
+                                                    lineHeight: 1.5
+                                                }}>10,212 تومان</span>
+                                                <small style={{ textDecoration: 'line-through' }}>11,875</small>
+                                            </b>
+                                            <h4 style={{ fontSize: '0.8rem', lineHeight: 1.5, textAlign: 'center', color: '#333' }}>شامپو صورت و بدن آبی گلرنگ ۲۸۰ گرمی</h4>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="carousel-cell">
+                            <div style={{ marginTop: '50px', fontFamily: 'IRANSans' }}>
+
+                                <div className='mmm' style={{}}>
+                                    <span style={{ border: '2px solid #7F7', borderRadius: '50%', position: 'relative', zIndex: 200 }}>
+                                        <button style={{ background: 'none', border: 'none', }}>
+                                            <span style={{ color: '#7F9' }}>+</span>
+                                        </button>
+                                    </span>
+                                    <a href='/' style={{ fontFamily: 'IRANSans', fontSize: '1.2em', textDecoration: 'none' }}>
+                                        <div>
+                                            <img src={require('../../images/products/6.jpg')} className='img-responsive' />
+                                            <span style={{
+                                                fontFamily: "'IRANSans', sans-serif", fontSize: '0.7em',
+                                                backgroundColor: '#1baf19',
+                                                borderRadius: '5px',
+                                                padding: '5px',
+                                                position: 'absolute',
+                                                right: '8%',
+                                                bottom: '40%',
+                                                color: '#FFF'
+                                            }}>تخفیف 14 %</span>
+                                        </div>
+                                        <div style={{ padding: '0 15px' }}>
+                                            <b style={{
+                                                fontFamily: 'inherit',
+                                                display: 'flex',
+                                                justifyContent: 'space-between',
+                                                fontSize: '0.9rem',
+                                                color: '#333',
+                                                padding: '2rem 0px 1rem',
+                                                direction: 'rtl'
+                                            }}>
+                                                <span style={{
+                                                    fontFamily: 'inherit',
+                                                    lineHeight: 1.5
+                                                }}>10,212 تومان</span>
+                                                <small style={{ textDecoration: 'line-through' }}>11,875</small>
+                                            </b>
+                                            <h4 style={{ fontSize: '0.8rem', lineHeight: 1.5, textAlign: 'center', color: '#333' }}>شامپو صورت و بدن آبی گلرنگ ۲۸۰ گرمی</h4>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="carousel-cell">
+                            <div style={{ marginTop: '50px', fontFamily: 'IRANSans' }}>
+                                <div className='mmm' style={{}}>
+                                    <span style={{ border: '2px solid #7F7', borderRadius: '50%', position: 'relative', zIndex: 200 }}>
+                                        <button style={{ background: 'none', border: 'none', }}>
+                                            <span style={{ color: '#7F9' }}>+</span>
+                                        </button>
+                                    </span>
+                                    <a href='/' style={{ fontFamily: 'IRANSans', fontSize: '1.2em', textDecoration: 'none' }}>
+                                        <div>
+                                            <img src={require('../../images/products/5.jpg')} className='img-responsive' />
+                                            <span style={{
+                                                fontFamily: "'IRANSans', sans-serif", fontSize: '0.7em',
+                                                backgroundColor: '#1baf19',
+                                                borderRadius: '5px',
+                                                padding: '5px',
+                                                position: 'absolute',
+                                                right: '8%',
+                                                bottom: '40%',
+                                                color: '#FFF'
+                                            }}>تخفیف 14 %</span>
+                                        </div>
+                                        <div style={{ padding: '0 15px' }}>
+                                            <b style={{
+                                                fontFamily: 'inherit',
+                                                display: 'flex',
+                                                justifyContent: 'space-between',
+                                                fontSize: '0.9rem',
+                                                color: '#333',
+                                                padding: '2rem 0px 1rem',
+                                                direction: 'rtl'
+                                            }}>
+                                                <span style={{
+                                                    fontFamily: 'inherit',
+                                                    lineHeight: 1.5
+                                                }}>10,212 تومان</span>
+                                                <small style={{ textDecoration: 'line-through' }}>11,875</small>
+                                            </b>
+                                            <h4 style={{ fontSize: '0.8rem', lineHeight: 1.5, textAlign: 'center', color: '#333' }}>شامپو صورت و بدن آبی گلرنگ ۲۸۰ گرمی</h4>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="carousel-cell">
+                            <div style={{ marginTop: '50px', fontFamily: 'IRANSans' }}>
+                                <div className='mmm' style={{}}>
+                                    <span style={{ border: '2px solid #7F7', borderRadius: '50%', position: 'relative', zIndex: 200 }}>
+                                        <button style={{ background: 'none', border: 'none', }}>
+                                            <span style={{ color: '#7F9' }}>+</span>
+                                        </button>
+                                    </span>
+                                    <a href='/' style={{ fontFamily: 'IRANSans', fontSize: '1.2em', textDecoration: 'none' }}>
+                                        <div>
+                                            <img src={require('../../images/products/4.jpg')} className='img-responsive' />
+                                            <span style={{
+                                                fontFamily: "'IRANSans', sans-serif", fontSize: '0.7em',
+                                                backgroundColor: '#1baf19',
+                                                borderRadius: '5px',
+                                                padding: '5px',
+                                                position: 'absolute',
+                                                right: '8%',
+                                                bottom: '40%',
+                                                color: '#FFF'
+                                            }}>تخفیف 14 %</span>
+                                        </div>
+                                        <div style={{ padding: '0 15px' }}>
+                                            <b style={{
+                                                fontFamily: 'inherit',
+                                                display: 'flex',
+                                                justifyContent: 'space-between',
+                                                fontSize: '0.9rem',
+                                                color: '#333',
+                                                padding: '2rem 0px 1rem',
+                                                direction: 'rtl'
+                                            }}>
+                                                <span style={{
+                                                    fontFamily: 'inherit',
+                                                    lineHeight: 1.5
+                                                }}>10,212 تومان</span>
+                                                <small style={{ textDecoration: 'line-through' }}>11,875</small>
+                                            </b>
+                                            <h4 style={{ fontSize: '0.8rem', lineHeight: 1.5, textAlign: 'center', color: '#333' }}>شامپو صورت و بدن آبی گلرنگ ۲۸۰ گرمی</h4>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="carousel-cell">
+                            <div style={{ marginTop: '50px', fontFamily: 'IRANSans' }}>
+                                <div className='mmm' style={{}}>
+                                    <span style={{ border: '2px solid #7F7', borderRadius: '50%', position: 'relative', zIndex: 200 }}>
+                                        <button style={{ background: 'none', border: 'none', }}>
+                                            <span style={{ color: '#7F9' }}>+</span>
+                                        </button>
+                                    </span>
+                                    <a href='/' style={{ fontFamily: 'IRANSans', fontSize: '1.2em', textDecoration: 'none' }}>
+                                        <div>
+                                            <img src={require('../../images/products/3.jpg')} className='img-responsive' />
+                                            <span style={{
+                                                fontFamily: "'IRANSans', sans-serif", fontSize: '0.7em',
+                                                backgroundColor: '#1baf19',
+                                                borderRadius: '5px',
+                                                padding: '5px',
+                                                position: 'absolute',
+                                                right: '8%',
+                                                bottom: '40%',
+                                                color: '#FFF'
+                                            }}>تخفیف 14 %</span>
+                                        </div>
+                                        <div style={{ padding: '0 15px' }}>
+                                            <b style={{
+                                                fontFamily: 'inherit',
+                                                display: 'flex',
+                                                justifyContent: 'space-between',
+                                                fontSize: '0.9rem',
+                                                color: '#333',
+                                                padding: '2rem 0px 1rem',
+                                                direction: 'rtl'
+                                            }}>
+                                                <span style={{
+                                                    fontFamily: 'inherit',
+                                                    lineHeight: 1.5
+                                                }}>10,212 تومان</span>
+                                                <small style={{ textDecoration: 'line-through' }}>11,875</small>
+                                            </b>
+                                            <h4 style={{ fontSize: '0.8rem', lineHeight: 1.5, textAlign: 'center', color: '#333' }}>شامپو صورت و بدن آبی گلرنگ ۲۸۰ گرمی</h4>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="carousel-cell">
+                            <div style={{ marginTop: '50px', fontFamily: 'IRANSans' }}>
+                                <div className='mmm' style={{}}>
+                                    <span style={{ border: '2px solid #7F7', borderRadius: '50%', position: 'relative', zIndex: 200 }}>
+                                        <button style={{ background: 'none', border: 'none', }}>
+                                            <span style={{ color: '#7F9' }}>+</span>
+                                        </button>
+                                    </span>
+                                    <a href='/' style={{ fontFamily: 'IRANSans', fontSize: '1.2em', textDecoration: 'none' }}>
+                                        <div>
+                                            <img src={require('../../images/products/2.jpg')} className='img-responsive' />
+                                            <span style={{
+                                                fontFamily: "'IRANSans', sans-serif", fontSize: '0.7em',
+                                                backgroundColor: '#1baf19',
+                                                borderRadius: '5px',
+                                                padding: '5px',
+                                                position: 'absolute',
+                                                right: '8%',
+                                                bottom: '40%',
+                                                color: '#FFF'
+                                            }}>تخفیف 14 %</span>
+                                        </div>
+                                        <div style={{ padding: '0 15px' }}>
+                                            <b style={{
+                                                fontFamily: 'inherit',
+                                                display: 'flex',
+                                                justifyContent: 'space-between',
+                                                fontSize: '0.9rem',
+                                                color: '#333',
+                                                padding: '2rem 0px 1rem',
+                                                direction: 'rtl'
+                                            }}>
+                                                <span style={{
+                                                    fontFamily: 'inherit',
+                                                    lineHeight: 1.5
+                                                }}>10,212 تومان</span>
+                                                <small style={{ textDecoration: 'line-through' }}>11,875</small>
+                                            </b>
+                                            <h4 style={{ fontSize: '0.8rem', lineHeight: 1.5, textAlign: 'center', color: '#333' }}>شامپو صورت و بدن آبی گلرنگ ۲۸۰ گرمی</h4>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="carousel-cell">
+                            <div style={{ marginTop: '50px', fontFamily: 'IRANSans' }}>
+                                <div className='mmm' style={{}}>
+                                    <span style={{ border: '2px solid #7F7', borderRadius: '50%', position: 'relative', zIndex: 200 }}>
+                                        <button style={{ background: 'none', border: 'none', }}>
+                                            <span style={{ color: '#7F9' }}>+</span>
+                                        </button>
+                                    </span>
+                                    <a href='/' style={{ fontFamily: 'IRANSans', fontSize: '1.2em', textDecoration: 'none' }}>
+                                        <div>
+                                            <img src={require('../../images/products/1.jpg')} className='img-responsive' />
+                                            <span style={{
+                                                fontFamily: "'IRANSans', sans-serif", fontSize: '0.7em',
+                                                backgroundColor: '#1baf19',
+                                                borderRadius: '5px',
+                                                padding: '5px',
+                                                position: 'absolute',
+                                                right: '8%',
+                                                bottom: '40%',
+                                                color: '#FFF'
+                                            }}>تخفیف 14 %</span>
+                                        </div>
+                                        <div style={{ padding: '0 15px' }}>
+                                            <b style={{
+                                                fontFamily: 'inherit',
+                                                display: 'flex',
+                                                justifyContent: 'space-between',
+                                                fontSize: '0.9rem',
+                                                color: '#333',
+                                                padding: '2rem 0px 1rem',
+                                                direction: 'rtl'
+                                            }}>
+                                                <span style={{
+                                                    fontFamily: 'inherit',
+                                                    lineHeight: 1.5
+                                                }}>10,212 تومان</span>
+                                                <small style={{ textDecoration: 'line-through' }}>11,875</small>
+                                            </b>
+                                            <h4 style={{ fontSize: '0.8rem', lineHeight: 1.5, textAlign: 'center', color: '#333' }}>شامپو صورت و بدن آبی گلرنگ ۲۸۰ گرمی</h4>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
 
 
                 {/* Banner */}
                 <Banner picAddr={'CrossBanners/crossBanner3.jpg'} alt={'سبدتو پر کن'} />
-                
-
-
-                
-                <section style={{
-                    boxShadow: '0 8px 6px -6px rgba(68, 68, 68, 0.1)', margin: '40px auto', padding: '5px', paddingBottom:'40px',
-                    background: 'linear-gradient(135deg, rgb(255, 255, 255) 20%, rgb(255, 255, 255) 80%)', borderRadius: '8px',
-                }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', padding: '0 2%' }}>
-                        <div><a href="/" style={{ fontSize: '0.9rem', color: '#007bFF'}}> مشاهده همه</a></div>
-                        <h3><a href='/' style={{ fontSize: '1.1rem', color: '#444'}}> لبنیات</a></h3>
-                    </div>
-                    <div className="myCarousel">
-                        <div className="carousel-cell">
-                            <div style={{ marginTop: '50px', fontFamily: 'IRANSans' }}>
-                                <div className='mmm' style={{}}>
-                                    <span style={{ border: '2px solid #7F7', borderRadius: '50%', position: 'relative', zIndex: 200 }}>
-                                        <button style={{ background: 'none', border: 'none', }}>
-                                            <span style={{ color: '#7F9' }}>+</span>
-                                        </button>
-                                    </span>
-                                    <a href='/' style={{ fontFamily: 'IRANSans', fontSize: '1.2em', textDecoration: 'none' }}>
-                                        <div>
-                                            <img src={require('../../images/products/9.jpg')} className='img-responsive' />
-                                            <span style={{
-                                                fontFamily: "'IRANSans', sans-serif", fontSize: '0.7em',
-                                                backgroundColor: '#1baf19',
-                                                borderRadius: '5px',
-                                                padding: '5px',
-                                                position: 'absolute',
-                                                right: '8%',
-                                                bottom: '40%',
-                                                color: '#FFF'
-                                            }}>تخفیف 14 %</span>
-                                        </div>
-                                        <div style={{ padding: '0 15px' }}>
-                                            <b style={{
-                                                fontFamily: 'inherit',
-                                                display: 'flex',
-                                                justifyContent: 'space-between',
-                                                fontSize: '0.9rem',
-                                                color: '#333',
-                                                padding: '2rem 0px 1rem',
-                                                direction: 'rtl'
-                                            }}>
-                                                <span style={{
-                                                    fontFamily: 'inherit',
-                                                    lineHeight: 1.5
-                                                }}>10,212 تومان</span>
-                                                <small style={{ textDecoration: 'line-through' }}>11,875</small>
-                                            </b>
-                                            <h4 style={{ fontSize: '0.8rem', lineHeight: 1.5, textAlign: 'center', color: '#333' }}>شامپو صورت و بدن آبی گلرنگ ۲۸۰ گرمی</h4>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="carousel-cell">
-                            <div style={{ marginTop: '50px', fontFamily: 'IRANSans' }}>
-                                <div className='mmm' style={{}}>
-                                    <span style={{ border: '2px solid #7F7', borderRadius: '50%', position: 'relative', zIndex: 200 }}>
-                                        <button style={{ background: 'none', border: 'none', }}>
-                                            <span style={{ color: '#7F9' }}>+</span>
-                                        </button>
-                                    </span>
-                                    <a href='/' style={{ fontFamily: 'IRANSans', fontSize: '1.2em', textDecoration: 'none' }}>
-                                        <div>
-                                            <img src={require('../../images/products/8.jpg')} className='img-responsive' />
-                                            <span style={{
-                                                fontFamily: "'IRANSans', sans-serif", fontSize: '0.7em',
-                                                backgroundColor: '#1baf19',
-                                                borderRadius: '5px',
-                                                padding: '5px',
-                                                position: 'absolute',
-                                                right: '8%',
-                                                bottom: '40%',
-                                                color: '#FFF'
-                                            }}>تخفیف 14 %</span>
-                                        </div>
-                                        <div style={{ padding: '0 15px' }}>
-                                            <b style={{
-                                                fontFamily: 'inherit',
-                                                display: 'flex',
-                                                justifyContent: 'space-between',
-                                                fontSize: '0.9rem',
-                                                color: '#333',
-                                                padding: '2rem 0px 1rem',
-                                                direction: 'rtl'
-                                            }}>
-                                                <span style={{
-                                                    fontFamily: 'inherit',
-                                                    lineHeight: 1.5
-                                                }}>10,212 تومان</span>
-                                                <small style={{ textDecoration: 'line-through' }}>11,875</small>
-                                            </b>
-                                            <h4 style={{ fontSize: '0.8rem', lineHeight: 1.5, textAlign: 'center', color: '#333' }}>شامپو صورت و بدن آبی گلرنگ ۲۸۰ گرمی</h4>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="carousel-cell">
-                            <div style={{ marginTop: '50px', fontFamily: 'IRANSans' }}>
-
-                                <div className='mmm' style={{}}>
-                                    <span style={{ border: '2px solid #7F7', borderRadius: '50%', position: 'relative', zIndex: 200 }}>
-                                        <button style={{ background: 'none', border: 'none', }}>
-                                            <span style={{ color: '#7F9' }}>+</span>
-                                        </button>
-                                    </span>
-                                    <a href='/' style={{ fontFamily: 'IRANSans', fontSize: '1.2em', textDecoration: 'none' }}>
-                                        <div>
-                                            <img src={require('../../images/products/7.jpg')} className='img-responsive' />
-                                            <span style={{
-                                                fontFamily: "'IRANSans', sans-serif", fontSize: '0.7em',
-                                                backgroundColor: '#1baf19',
-                                                borderRadius: '5px',
-                                                padding: '5px',
-                                                position: 'absolute',
-                                                right: '8%',
-                                                bottom: '40%',
-                                                color: '#FFF'
-                                            }}>تخفیف 14 %</span>
-                                        </div>
-                                        <div style={{ padding: '0 15px' }}>
-                                            <b style={{
-                                                fontFamily: 'inherit',
-                                                display: 'flex',
-                                                justifyContent: 'space-between',
-                                                fontSize: '0.9rem',
-                                                color: '#333',
-                                                padding: '2rem 0px 1rem',
-                                                direction: 'rtl'
-                                            }}>
-                                                <span style={{
-                                                    fontFamily: 'inherit',
-                                                    lineHeight: 1.5
-                                                }}>10,212 تومان</span>
-                                                <small style={{ textDecoration: 'line-through' }}>11,875</small>
-                                            </b>
-                                            <h4 style={{ fontSize: '0.8rem', lineHeight: 1.5, textAlign: 'center', color: '#333' }}>شامپو صورت و بدن آبی گلرنگ ۲۸۰ گرمی</h4>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="carousel-cell">
-                            <div style={{ marginTop: '50px', fontFamily: 'IRANSans' }}>
-
-                                <div className='mmm' style={{}}>
-                                    <span style={{ border: '2px solid #7F7', borderRadius: '50%', position: 'relative', zIndex: 200 }}>
-                                        <button style={{ background: 'none', border: 'none', }}>
-                                            <span style={{ color: '#7F9' }}>+</span>
-                                        </button>
-                                    </span>
-                                    <a href='/' style={{ fontFamily: 'IRANSans', fontSize: '1.2em', textDecoration: 'none' }}>
-                                        <div>
-                                            <img src={require('../../images/products/6.jpg')} className='img-responsive' />
-                                            <span style={{
-                                                fontFamily: "'IRANSans', sans-serif", fontSize: '0.7em',
-                                                backgroundColor: '#1baf19',
-                                                borderRadius: '5px',
-                                                padding: '5px',
-                                                position: 'absolute',
-                                                right: '8%',
-                                                bottom: '40%',
-                                                color: '#FFF'
-                                            }}>تخفیف 14 %</span>
-                                        </div>
-                                        <div style={{ padding: '0 15px' }}>
-                                            <b style={{
-                                                fontFamily: 'inherit',
-                                                display: 'flex',
-                                                justifyContent: 'space-between',
-                                                fontSize: '0.9rem',
-                                                color: '#333',
-                                                padding: '2rem 0px 1rem',
-                                                direction: 'rtl'
-                                            }}>
-                                                <span style={{
-                                                    fontFamily: 'inherit',
-                                                    lineHeight: 1.5
-                                                }}>10,212 تومان</span>
-                                                <small style={{ textDecoration: 'line-through' }}>11,875</small>
-                                            </b>
-                                            <h4 style={{ fontSize: '0.8rem', lineHeight: 1.5, textAlign: 'center', color: '#333' }}>شامپو صورت و بدن آبی گلرنگ ۲۸۰ گرمی</h4>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="carousel-cell">
-                            <div style={{ marginTop: '50px', fontFamily: 'IRANSans' }}>
-                                <div className='mmm' style={{}}>
-                                    <span style={{ border: '2px solid #7F7', borderRadius: '50%', position: 'relative', zIndex: 200 }}>
-                                        <button style={{ background: 'none', border: 'none', }}>
-                                            <span style={{ color: '#7F9' }}>+</span>
-                                        </button>
-                                    </span>
-                                    <a href='/' style={{ fontFamily: 'IRANSans', fontSize: '1.2em', textDecoration: 'none' }}>
-                                        <div>
-                                            <img src={require('../../images/products/5.jpg')} className='img-responsive' />
-                                            <span style={{
-                                                fontFamily: "'IRANSans', sans-serif", fontSize: '0.7em',
-                                                backgroundColor: '#1baf19',
-                                                borderRadius: '5px',
-                                                padding: '5px',
-                                                position: 'absolute',
-                                                right: '8%',
-                                                bottom: '40%',
-                                                color: '#FFF'
-                                            }}>تخفیف 14 %</span>
-                                        </div>
-                                        <div style={{ padding: '0 15px' }}>
-                                            <b style={{
-                                                fontFamily: 'inherit',
-                                                display: 'flex',
-                                                justifyContent: 'space-between',
-                                                fontSize: '0.9rem',
-                                                color: '#333',
-                                                padding: '2rem 0px 1rem',
-                                                direction: 'rtl'
-                                            }}>
-                                                <span style={{
-                                                    fontFamily: 'inherit',
-                                                    lineHeight: 1.5
-                                                }}>10,212 تومان</span>
-                                                <small style={{ textDecoration: 'line-through' }}>11,875</small>
-                                            </b>
-                                            <h4 style={{ fontSize: '0.8rem', lineHeight: 1.5, textAlign: 'center', color: '#333' }}>شامپو صورت و بدن آبی گلرنگ ۲۸۰ گرمی</h4>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="carousel-cell">
-                            <div style={{ marginTop: '50px', fontFamily: 'IRANSans' }}>
-                                <div className='mmm' style={{}}>
-                                    <span style={{ border: '2px solid #7F7', borderRadius: '50%', position: 'relative', zIndex: 200 }}>
-                                        <button style={{ background: 'none', border: 'none', }}>
-                                            <span style={{ color: '#7F9' }}>+</span>
-                                        </button>
-                                    </span>
-                                    <a href='/' style={{ fontFamily: 'IRANSans', fontSize: '1.2em', textDecoration: 'none' }}>
-                                        <div>
-                                            <img src={require('../../images/products/4.jpg')} className='img-responsive' />
-                                            <span style={{
-                                                fontFamily: "'IRANSans', sans-serif", fontSize: '0.7em',
-                                                backgroundColor: '#1baf19',
-                                                borderRadius: '5px',
-                                                padding: '5px',
-                                                position: 'absolute',
-                                                right: '8%',
-                                                bottom: '40%',
-                                                color: '#FFF'
-                                            }}>تخفیف 14 %</span>
-                                        </div>
-                                        <div style={{ padding: '0 15px' }}>
-                                            <b style={{
-                                                fontFamily: 'inherit',
-                                                display: 'flex',
-                                                justifyContent: 'space-between',
-                                                fontSize: '0.9rem',
-                                                color: '#333',
-                                                padding: '2rem 0px 1rem',
-                                                direction: 'rtl'
-                                            }}>
-                                                <span style={{
-                                                    fontFamily: 'inherit',
-                                                    lineHeight: 1.5
-                                                }}>10,212 تومان</span>
-                                                <small style={{ textDecoration: 'line-through' }}>11,875</small>
-                                            </b>
-                                            <h4 style={{ fontSize: '0.8rem', lineHeight: 1.5, textAlign: 'center', color: '#333' }}>شامپو صورت و بدن آبی گلرنگ ۲۸۰ گرمی</h4>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="carousel-cell">
-                            <div style={{ marginTop: '50px', fontFamily: 'IRANSans' }}>
-                                <div className='mmm' style={{}}>
-                                    <span style={{ border: '2px solid #7F7', borderRadius: '50%', position: 'relative', zIndex: 200 }}>
-                                        <button style={{ background: 'none', border: 'none', }}>
-                                            <span style={{ color: '#7F9' }}>+</span>
-                                        </button>
-                                    </span>
-                                    <a href='/' style={{ fontFamily: 'IRANSans', fontSize: '1.2em', textDecoration: 'none' }}>
-                                        <div>
-                                            <img src={require('../../images/products/3.jpg')} className='img-responsive' />
-                                            <span style={{
-                                                fontFamily: "'IRANSans', sans-serif", fontSize: '0.7em',
-                                                backgroundColor: '#1baf19',
-                                                borderRadius: '5px',
-                                                padding: '5px',
-                                                position: 'absolute',
-                                                right: '8%',
-                                                bottom: '40%',
-                                                color: '#FFF'
-                                            }}>تخفیف 14 %</span>
-                                        </div>
-                                        <div style={{ padding: '0 15px' }}>
-                                            <b style={{
-                                                fontFamily: 'inherit',
-                                                display: 'flex',
-                                                justifyContent: 'space-between',
-                                                fontSize: '0.9rem',
-                                                color: '#333',
-                                                padding: '2rem 0px 1rem',
-                                                direction: 'rtl'
-                                            }}>
-                                                <span style={{
-                                                    fontFamily: 'inherit',
-                                                    lineHeight: 1.5
-                                                }}>10,212 تومان</span>
-                                                <small style={{ textDecoration: 'line-through' }}>11,875</small>
-                                            </b>
-                                            <h4 style={{ fontSize: '0.8rem', lineHeight: 1.5, textAlign: 'center', color: '#333' }}>شامپو صورت و بدن آبی گلرنگ ۲۸۰ گرمی</h4>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="carousel-cell">
-                            <div style={{ marginTop: '50px', fontFamily: 'IRANSans' }}>
-                                <div className='mmm' style={{}}>
-                                    <span style={{ border: '2px solid #7F7', borderRadius: '50%', position: 'relative', zIndex: 200 }}>
-                                        <button style={{ background: 'none', border: 'none', }}>
-                                            <span style={{ color: '#7F9' }}>+</span>
-                                        </button>
-                                    </span>
-                                    <a href='/' style={{ fontFamily: 'IRANSans', fontSize: '1.2em', textDecoration: 'none' }}>
-                                        <div>
-                                            <img src={require('../../images/products/2.jpg')} className='img-responsive' />
-                                            <span style={{
-                                                fontFamily: "'IRANSans', sans-serif", fontSize: '0.7em',
-                                                backgroundColor: '#1baf19',
-                                                borderRadius: '5px',
-                                                padding: '5px',
-                                                position: 'absolute',
-                                                right: '8%',
-                                                bottom: '40%',
-                                                color: '#FFF'
-                                            }}>تخفیف 14 %</span>
-                                        </div>
-                                        <div style={{ padding: '0 15px' }}>
-                                            <b style={{
-                                                fontFamily: 'inherit',
-                                                display: 'flex',
-                                                justifyContent: 'space-between',
-                                                fontSize: '0.9rem',
-                                                color: '#333',
-                                                padding: '2rem 0px 1rem',
-                                                direction: 'rtl'
-                                            }}>
-                                                <span style={{
-                                                    fontFamily: 'inherit',
-                                                    lineHeight: 1.5
-                                                }}>10,212 تومان</span>
-                                                <small style={{ textDecoration: 'line-through' }}>11,875</small>
-                                            </b>
-                                            <h4 style={{ fontSize: '0.8rem', lineHeight: 1.5, textAlign: 'center', color: '#333' }}>شامپو صورت و بدن آبی گلرنگ ۲۸۰ گرمی</h4>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="carousel-cell">
-                            <div style={{ marginTop: '50px', fontFamily: 'IRANSans' }}>
-                                <div className='mmm' style={{}}>
-                                    <span style={{ border: '2px solid #7F7', borderRadius: '50%', position: 'relative', zIndex: 200 }}>
-                                        <button style={{ background: 'none', border: 'none', }}>
-                                            <span style={{ color: '#7F9' }}>+</span>
-                                        </button>
-                                    </span>
-                                    <a href='/' style={{ fontFamily: 'IRANSans', fontSize: '1.2em', textDecoration: 'none' }}>
-                                        <div>
-                                            <img src={require('../../images/products/1.jpg')} className='img-responsive' />
-                                            <span style={{
-                                                fontFamily: "'IRANSans', sans-serif", fontSize: '0.7em',
-                                                backgroundColor: '#1baf19',
-                                                borderRadius: '5px',
-                                                padding: '5px',
-                                                position: 'absolute',
-                                                right: '8%',
-                                                bottom: '40%',
-                                                color: '#FFF'
-                                            }}>تخفیف 14 %</span>
-                                        </div>
-                                        <div style={{ padding: '0 15px' }}>
-                                            <b style={{
-                                                fontFamily: 'inherit',
-                                                display: 'flex',
-                                                justifyContent: 'space-between',
-                                                fontSize: '0.9rem',
-                                                color: '#333',
-                                                padding: '2rem 0px 1rem',
-                                                direction: 'rtl'
-                                            }}>
-                                                <span style={{
-                                                    fontFamily: 'inherit',
-                                                    lineHeight: 1.5
-                                                }}>10,212 تومان</span>
-                                                <small style={{ textDecoration: 'line-through' }}>11,875</small>
-                                            </b>
-                                            <h4 style={{ fontSize: '0.8rem', lineHeight: 1.5, textAlign: 'center', color: '#333' }}>شامپو صورت و بدن آبی گلرنگ ۲۸۰ گرمی</h4>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
 
 
             </div>

@@ -11,6 +11,9 @@ import 'popper.js/dist/popper';
 // import Popper from 'popper.js';
 import 'bootstrap/dist/js/bootstrap';
 
+
+// import { BrowserRouter as Router, Link, Route } from "react-router-dom";
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
