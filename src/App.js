@@ -9,12 +9,7 @@ import Slide2 from './images/slide2.jpg';
 import headerLOGO from './images/headerLOGO.png';
 
 import Pace from 'react-pace-progress'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPhone, faBarcode, faEnvelope } from '@fortawesome/free-solid-svg-icons'
-import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
-import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons'
-import { faHome } from '@fortawesome/free-solid-svg-icons'
-import { faListUl } from '@fortawesome/free-solid-svg-icons'
+
 
 
 
@@ -37,6 +32,9 @@ import Footer from './components/Footer';
 import Landing from './components/Landing';
 import CategoryBoxes from './components/CategoryBoxes';
 import Banner from './components/Banner';
+import BottomNav from './components/BottomNav';
+
+import { BrowserRouter as Router, Route, Link, Redirect, Switch } from "react-router-dom";
 
 class App extends Component {
 
@@ -73,13 +71,14 @@ class App extends Component {
 
           <Heading />
 
+          
+
           <div style={{ width: '100%', margin: '0 auto', marginTop: '180px', paddingTop: '20px' }}>
 
             
 
             {/* Categories */}
-            <CategoryBoxes />
-
+            <CategoryBoxes />            
 
             {/* Banner */}
             <Banner picAddr={'CrossBanners/crossBanner2.jpg'} alt={'سبدتو پر کن'} />
@@ -147,7 +146,7 @@ class App extends Component {
 
 
             {/* 3Scroll */}
-            <div class='container-fluid' style={{ margin: '20px auto' }}>
+            <div className='container-fluid' style={{ margin: '20px auto' }}>
               <OwlCarousel items={3}
                 className="owl-theme"
                 loop
@@ -167,30 +166,7 @@ class App extends Component {
 
 
             {/* Nav Bottom */}
-            <nav className="row d-xs-inline-block d-sm-none" style={{ position: 'fixed', bottom: 0, width: '100%', backgroundColor: 'bisque', margin: 0, padding: '.9em 0', zIndex: 200 }}>
-              <div className='col-3 col-md-3 text-center'>
-                <div className=''>
-                  <FontAwesomeIcon icon={faShoppingCart} size="lg" />
-                </div>
-              </div>
-              <div className='col-3 col-md-3 text-center'>
-                <div className=''>
-                  <FontAwesomeIcon icon={faListUl} size="lg" />
-                </div>
-              </div>
-              <div className='col-3 col-md-3 text-center'>
-                <div className=''>
-                  <FontAwesomeIcon icon={faHome} size="lg" />
-                </div>
-              </div>
-              <div className='col-3 col-md-3 text-center'>
-                <div className=''>
-                  <a href='/'>
-                    <FontAwesomeIcon icon={faMapMarkerAlt} size="lg" />
-                  </a>
-                </div>
-              </div>
-            </nav>
+            <BottomNav />
 
           </div>
 

@@ -1,28 +1,18 @@
-.carousel-cell {
+.productCapsule {
     height: 400px;
 }
 
 
 /*------------------------------------------------------------*/
+.catp74 {
 
-.mmm {
-    /* padding: 0px 1rem; */
-    padding: 0 5px;
-    position: relative;
-
-    border: 1px solid #DDD;
-    border-radius: 20px;
-    padding-top: 10px;
-    margin: 0 5px;
-
-    box-shadow: 2px 5px 6px -2px rgba(68, 68, 68, 0.2);
 }
 
 @media (max-width: 576px) {
-    .mmm {
-        width: 205px;
+    .catp74 {
+        width: 185px;
     }
-    .mmm img {
+    .catp74 img {
         object-fit: 'fill';
         width: 100%;
         height: 100%;
@@ -30,10 +20,10 @@
 }
 
 @media (min-width: 576px) {
-    .mmm {
-        width: 200px;
+    .catp74 {
+        width: 180px;
     }
-    .mmm img {
+    .catp74 img {
         object-fit: 'fill';
         width: 100%;
         height: 100%;
@@ -41,10 +31,10 @@
 }
 
 @media (min-width: 768px) {
-    .mmm {
-        width: 190px;
+    .catp74 {
+        width: 170px;
     }
-    .mmm img {
+    .catp74 img {
         object-fit: 'cover';
         width: 100%;
         height: 100%;
@@ -52,12 +42,12 @@
 }
 
 @media (min-width: 992px) {
-    .mmm {
-        width: 185px;
+    .catp74 {
+        width: 165px;
         /* border: 5px solid red;
     margin: 100px; */
     }
-    .mmm img {
+    .catp74 img {
         object-fit: 'cover';
         width: 100%;
         height: 100%;
@@ -65,10 +55,10 @@
 }
 
 @media (min-width: 1200px) {
-    .mmm {
-        width: 180px;
+    .catp74 {
+        width: 160px;
     }
-    .mmm img {
+    .catp74 img {
         object-fit: 'cover';
         width: 100%;
         height: 100%;
@@ -76,10 +66,10 @@
 }
 
 @media (min-width: 1500px) {
-    .mmm {
-        width: 176px;
+    .catp74 {
+        width: 146px;
     }
-    .mmm img {
+    .catp74 img {
         object-fit: 'cover';
         width: 100%;
         height: 100%;
@@ -88,7 +78,7 @@
 
 
 
-.carousel-cell h4 {
+.productCapsule h4 {
     color: #5d6065 !important;
     font-size: 0.8rem;
     line-height: 1.5;
@@ -96,12 +86,12 @@
     color: #5d6065;
 }
 
-.carousel-cell small {
+.productCapsule small {
     color: #5d6065 !important;
     text-decoration: line-through;
 }
 
-.carousel-cell span.spanDiscount {
+.productCapsule span.spanDiscount {
     font-family: 'IRANSans', sans-serif;
     font-size: 0.7em;
     background-color: #1baf19;
@@ -113,11 +103,11 @@
     color: #FFF;
 }
 
-.carousel-cell div.bWrapper {
+.productCapsule div.bWrapper {
     padding: 0 15px
 }
 
-.carousel-cell div.bWrapper b {
+.productCapsule div.bWrapper b {
     font-family: inherit;
     display: flex;
     justify-content: space-between;
@@ -127,12 +117,12 @@
     direction: rtl;
 }
 
-.mmm a {
+.catp74 a {
     font-family: IRANSans;
     font-size: 1.2em;
 }
 
-.mmm > span {
+.catp74 > span {
     border: 2px solid #28a745 !important;
     border-radius: 50%;
     position: relative;

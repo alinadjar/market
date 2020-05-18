@@ -12,11 +12,19 @@ import 'popper.js/dist/popper';
 import 'bootstrap/dist/js/bootstrap';
 
 
-// import { BrowserRouter as Router, Link, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect, Switch } from "react-router-dom";
+import CategoryPage from './components/CategoryPage';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Router>
+      <Switch>
+        <Route path="/" exact={true} component={App} />
+        <Route path='/categories/:catID' exact={true} component={CategoryPage} />
+        {/* <Route path='/categories/sweets' component={CategoryPage} /> */}
+        <Redirect to="/" />
+      </Switch>
+    </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );

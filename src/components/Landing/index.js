@@ -7,8 +7,6 @@ import 'flickity/css/flickity.css'
 
 import './landingPage.css';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faShoppingBasket, faCartPlus } from '@fortawesome/free-solid-svg-icons'
 
 class Landing extends Component {
     constructor(props) {
