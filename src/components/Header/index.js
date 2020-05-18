@@ -9,6 +9,10 @@ import { faListUl } from '@fortawesome/free-solid-svg-icons'
 import headerLOGO from '../../images/headerLOGO.png';
 
 
+import { connect } from 'react-redux';
+import { toggleLoadingState, toggleBasketSidePanel } from '../../iRedux/Actions/common';
+
+
 
 class Header extends Component {
     constructor(props) {
@@ -38,7 +42,8 @@ class Header extends Component {
                                                     borderRight: 'none',
                                                     borderColor: '#28a745',
                                                     color: '#FFF'
-                                                }} >Q</button>
+                                                }}                                                 
+                                                >Q</button>
                                         </div>
                                         <input type="text" className="form-control" id="inlineFormInputGroup" placeholder="search kala..."
                                             style={{ borderColor: '#28a745' }} />
@@ -50,11 +55,15 @@ class Header extends Component {
                     <div className="col-lg-3 col-12" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                         <img className='d-block d-lg-none' src={headerLOGO} alt="header logo" style={{ width: '150px', maxWidth: '100%', alignItems: 'left' }} />
                         <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'nowrap' }}>
-                            <button type="button" className="btn btn-success col-xs-6" style={{ marginRight: '0.4em' }} >
+                            <button type="button" className="btn btn-success col-xs-6" style={{ marginRight: '0.4em' }} 
+                            onClick={ () => this.props.toggleLoading() }
+                            >
                                 <FontAwesomeIcon icon={faShoppingCart} />
                                 <span style={{ padding: '0.2em' }}>سبدخرید</span>
                             </button>
-                            <button type="button" className="btn btn-outline-success col-xs-6">
+                            <button type="button" className="btn btn-outline-success col-xs-6"
+                                onClick={ () => this.props.toggleBasketSidePanel() }
+                            >
                                 <FontAwesomeIcon icon={faUserCircle} />
                                 <span style={{ padding: '0.2em' }}>ورود/عضویت</span>
                             </button>
@@ -105,4 +114,10 @@ class Header extends Component {
     }
 }
 
-export default Header;
+
+const mapDispatchToProps = {
+    toggleLoading: toggleLoadingState,
+    toggleBasketSidePanel
+}
+
+export default connect(null, mapDispatchToProps)(Header);

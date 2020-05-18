@@ -3,6 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+
+import Layout from './components/Layout/Layout';
+import { Provider } from 'react-redux';
+import STORE from './iRedux';
+
 import 'bootstrap/dist/css/bootstrap.css';
 
 
@@ -17,14 +22,18 @@ import CategoryPage from './components/CategoryPage';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
-      <Switch>
-        <Route path="/" exact={true} component={App} />
-        <Route path='/categories/:catID' exact={true} component={CategoryPage} />
-        {/* <Route path='/categories/sweets' component={CategoryPage} /> */}
-        <Redirect to="/" />
-      </Switch>
-    </Router>
+    <Provider store={STORE}>
+      <Layout>
+        <Router>
+          <Switch>
+            <Route path="/" exact={true} component={App} />
+            <Route path='/categories/:catID' exact={true} component={CategoryPage} />
+            {/* <Route path='/categories/sweets' component={CategoryPage} /> */}
+            <Redirect to="/" />
+          </Switch>
+        </Router>
+      </Layout>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
