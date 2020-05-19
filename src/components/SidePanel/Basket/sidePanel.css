@@ -1,9 +1,9 @@
 .sidePanel{
-    width: 500px;
+    width: 450px;
     max-width: 95%;
     transition: margin .5s ease-in;
-    margin: 0 -500px 0 0;
-    background-color: rgba(210, 227, 252, 0.95);
+    margin: 0 -450px 0 0;
+    background-color: rgba(247, 247, 247, 0.95);
 
     position: fixed;
     right: 0;
@@ -25,3 +25,8 @@
     opacity: 1;
     width: 100%;
 }
+
+/* body{
+    scrollbar-width: thin;     
+  scrollbar-color: blue orange;
+} */
