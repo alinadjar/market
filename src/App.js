@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { loadData } from './iRedux/Actions/shop_Actions';
+import { DataTypes } from './iRedux/Actions/types';
 
 
 // import logo from './logo.svg';
@@ -47,6 +50,10 @@ class App extends Component {
 
 
   componentDidMount() {
+
+    this.props.loadData(DataTypes.PRODUCTS);
+    // this.props.loadData(DataTypes.CATEGORIES);
+
     setTimeout(() => {
       this.setState({ startupBlinking: !this.state.startupBlinking });
     }, 50) // 5150
@@ -71,14 +78,12 @@ class App extends Component {
 
           <Heading />
 
-          
-
           <div style={{ width: '100%', margin: '0 auto', marginTop: '180px', paddingTop: '20px' }}>
 
-            
+
 
             {/* Categories */}
-            <CategoryBoxes />            
+            <CategoryBoxes />
 
             {/* Banner */}
             <Banner picAddr={'CrossBanners/crossBanner2.jpg'} alt={'سبدتو پر کن'} />
@@ -188,4 +193,8 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapDispatchToProps = {
+  loadData
+}
+
+export default connect(null, mapDispatchToProps)(App);

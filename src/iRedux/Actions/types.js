@@ -1,9 +1,25 @@
+
+
+export const DataTypes = {
+    PRODUCTS: "products",
+    CATEGORIES: "categories"
+}
+
+
+// common reducer
 export const toggleLOADING = "toggleLOADING";
 export const showBasketSidePanel = "showBasketSidePanel";
 
 
+// shop reducer
+export const DATA_LOAD = 'DATA_LOAD';
 
-export const BASKET_ADD = 'BASKET_ADD'; 
-export const BASKET_REMOVE = 'BASKET_REMOVE';  
-export const BASKET_UPDATE = 'BASKET_UPDATE'; 
-export const BASKET_CLEAR = 'BASKET_CLEAR'; 
+
+// cart reducer
+export const CART_ADD = 'CART_ADD';
+export const CART_REMOVE = 'CART_REMOVE';
+export const CART_UPDATE = 'CART_UPDATE';
+export const CART_CLEAR = 'CART_CLEAR';
+
+
+

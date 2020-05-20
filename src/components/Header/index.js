@@ -42,8 +42,8 @@ class Header extends Component {
                                                     borderRight: 'none',
                                                     borderColor: '#28a745',
                                                     color: '#FFF'
-                                                }}                                                 
-                                                >Q</button>
+                                                }}
+                                            >Q</button>
                                         </div>
                                         <input type="text" className="form-control" id="inlineFormInputGroup" placeholder="search kala..."
                                             style={{ borderColor: '#28a745' }} />
@@ -54,15 +54,16 @@ class Header extends Component {
                     </div>
                     <div className="col-lg-3 col-12" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                         <img className='d-block d-lg-none' src={headerLOGO} alt="header logo" style={{ width: '150px', maxWidth: '100%', alignItems: 'left' }} />
-                        <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'nowrap' }}>
-                            <button type="button" className="btn btn-success col-xs-6" style={{ marginRight: '0.4em' }} 
-                            onClick={ () => this.props.toggleLoading() }
+                        <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'nowrap', direction: 'rtl' }}>
+                            <button type="button" className="btn btn-success col-xs-6" style={{ direction: 'rtl', position: 'relative' }}                                
+                                onClick={() => this.props.toggleBasketSidePanel()}
                             >
+                                <span className="badge badge-danger" style={{ position: 'absolute', top: '-10px', right: '-8px', fontSize: '0.9rem', borderRadius: '50%' }}>{this.props.cartItems}</span>
                                 <FontAwesomeIcon icon={faShoppingCart} />
                                 <span style={{ padding: '0.2em' }}>سبدخرید</span>
                             </button>
-                            <button type="button" className="btn btn-outline-success col-xs-6"
-                                onClick={ () => this.props.toggleBasketSidePanel() }
+                            <button type="button" className="btn btn-outline-success col-xs-6" style={{ marginRight: '0.4em', }}
+                               onClick={() => this.props.toggleLoading()}
                             >
                                 <FontAwesomeIcon icon={faUserCircle} />
                                 <span style={{ padding: '0.2em' }}>ورود/عضویت</span>
@@ -114,10 +115,12 @@ class Header extends Component {
     }
 }
 
-
+const mapStateTpProps = (store) => ({
+    cartItems: store.cart.cartItems
+})
 const mapDispatchToProps = {
     toggleLoading: toggleLoadingState,
     toggleBasketSidePanel
 }
 
-export default connect(null, mapDispatchToProps)(Header);
+export default connect(mapStateTpProps, mapDispatchToProps)(Header);

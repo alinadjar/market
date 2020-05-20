@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Banner from '../Banner';
 // import $ from 'jquery';
 import Flickity from 'flickity';
@@ -116,6 +117,7 @@ class Landing extends Component {
                         <div><a href="/" style={{ fontSize: '0.9rem', color: '#007bFF' }}> مشاهده همه</a></div>
                         <h3><a href='/' style={{ fontSize: '1.1rem', color: '#444' }}> لبنیات</a></h3>
                     </div>
+                    <p>{JSON.stringify(this.props.products)}</p>
                     <div className="myCarousel">
                         <div className="carousel-cell">
                             <div style={{ marginTop: '50px' }}>
@@ -1344,5 +1346,8 @@ class Landing extends Component {
 }
 
 
+const mapStateToProps = (store) => ({
+    products: store.shop.products
+})
 
-export default Landing;
+export default connect(mapStateToProps, null)(Landing);

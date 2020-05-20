@@ -3,6 +3,8 @@ import reduxThunk from 'redux-thunk';
 import reduxPromise from 'redux-promise';
 
 import commonReducer from './Reducers/common';
+import cartReducer from './Reducers/cart_Reducer';
+import shopReducer from './Reducers/shop_Reducer';
 
 
 //-----------------------Middlewares 
@@ -15,7 +17,9 @@ const middleware = [
 
 
 const rootReducer = combineReducers({
-    common: commonReducer
+    common: commonReducer,
+    cart: cartReducer,
+    shop: shopReducer,
 });
 
 
