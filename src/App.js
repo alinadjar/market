@@ -52,7 +52,7 @@ class App extends Component {
   componentDidMount() {
 
     this.props.loadData(DataTypes.PRODUCTS);
-    // this.props.loadData(DataTypes.CATEGORIES);
+    this.props.loadData(DataTypes.CATEGORIES);
 
     setTimeout(() => {
       this.setState({ startupBlinking: !this.state.startupBlinking });

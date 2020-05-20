@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import './sidePanel.css';
 
-import { connect } from 'react-redux';
 import { toggleBasketSidePanel } from '../../../iRedux/Actions/common';
+import { addToCart, removeFromCart, clearCart } from '../../../iRedux/Actions/cart_Actions';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMinus, faPlus, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
+import CartItemBox from './CartItemBox';
 
 class SidePanelBasket extends Component {
 
@@ -43,6 +45,13 @@ class SidePanelBasket extends Component {
     }
 
 
+    calculateTotalDiscount = () => {
+        return this.props.cartItems.map(c => c.product.discount).reduce((a, b) => a + b, 0);
+        // debugger;
+        // return A.reduce((a, b) => a + b, 0)
+    }
+
+
     render() {
         return (
             <div id="backSidePanel" className="backSidePanel" onClick={this.toggleSidePanel}
@@ -57,7 +66,7 @@ class SidePanelBasket extends Component {
                             <div style={{ height: '70%', display: 'flex', flexDirection: 'column', position: 'relative' }}>
                                 <ul style={{ backgroundColor: 'rgb(64,125,182)', padding: '0px 10px', display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', listStyle: 'none', color: '#FFF', padding: '5px 0' }}>
                                     <li style={{ direction: 'rtl' }}>
-                                        <span>34,500 </span>
+                                        <span>{this.props.cartDiscount}</span>
                                         <span>تومان</span>
                                     </li>
                                     <li>
@@ -66,238 +75,17 @@ class SidePanelBasket extends Component {
                                 </ul>
                                 <ul style={{ overflow: 'auto', width: '100%', listStyle: 'none', overflowY: 'auto', padding: '10px 0' }}>
                                     <div>
-                                        <li style={{ borderBottom: '1px solid #e4dfdf' }}>
-                                            <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', backgroundColor: '#FFF' }}>
-                                                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '40%' }}>
-                                                    <div style={{ direction: 'rtl', fontSize: '0.7rem', paddingBottom: '5px' }}>
-                                                        <span>تومان</span>
-                                                        <span> 14,500 </span>
-                                                    </div>
-                                                    <div style={{ backgroundColor: '#FFF', borderRadius: '5px', boxShadow: 'rgba(0,0,0,0.25) 0px 2px 7px' }}>
-                                                        <button style={{ color: '#2d9e2d', padding: '5px 15px', fontSize: '1.0rem', background: 'none', border: 'none' }}> <FontAwesomeIcon icon={faPlus} size='sm' /></button>
-                                                        <span style={{ paddingLeft: '15px', paddingRight: '15px' }}>2</span>
-                                                        <button style={{ color: '#FF003B', padding: '5px 15px', fontSize: '1.0rem', background: 'none', border: 'none' }}> <FontAwesomeIcon icon={faMinus} size='sm' /></button>
-                                                    </div>
-                                                </div>
-                                                <div style={{ width: '35%', textAlign: 'center', fontSize: '0.9rem' }}>
-                                                    <span>سیب زمینی ۱.۵ کیلوگرمی (تعداد تقریبی ۶ عدد)</span>
-                                                </div>
-                                                <div style={{ width: '25%' }}>
-                                                    <img src={require('../../../images/products/1.jpg')} style={{ width: '70%', height: '75px', margin: '0 auto', display: 'block' }} />
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li style={{ borderBottom: '1px solid #e4dfdf' }}>
-                                            <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', backgroundColor: '#FFF' }}>
-                                                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '40%' }}>
-                                                    <div style={{ direction: 'rtl', fontSize: '0.7rem', paddingBottom: '5px' }}>
-                                                        <span> 14,500 </span>
-                                                        <span>تومان</span>
-                                                    </div>
-                                                    <div style={{ backgroundColor: '#FFF', borderRadius: '5px', boxShadow: 'rgba(0,0,0,0.25) 0px 2px 7px' }}>
-                                                        <button style={{ color: '#2d9e2d', padding: '5px 15px', fontSize: '1.0rem', background: 'none', border: 'none' }}> <FontAwesomeIcon icon={faPlus} size='sm' /></button>
-                                                        <span style={{ paddingLeft: '15px', paddingRight: '15px' }}>2</span>
-                                                        <button style={{ color: '#FF003B', padding: '5px 15px', fontSize: '1.0rem', background: 'none', border: 'none' }}> <FontAwesomeIcon icon={faMinus} size='sm' /></button>
-                                                    </div>
-                                                </div>
-                                                <div style={{ width: '35%', textAlign: 'center', fontSize: '0.9rem' }}>
-                                                    <span>سیب زمینی ۱.۵ کیلوگرمی (تعداد تقریبی ۶ عدد)</span>
-                                                </div>
-                                                <div style={{ width: '25%' }}>
-                                                    <img src={require('../../../images/products/2.jpg')} style={{ width: '70%', height: '75px', margin: '0 auto', display: 'block', }} />
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li style={{ borderBottom: '1px solid #e4dfdf' }}>
-                                            <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', backgroundColor: '#FFF' }}>
-                                                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '40%' }}>
-                                                    <div style={{ direction: 'rtl', fontSize: '0.7rem', paddingBottom: '5px' }}>
-                                                        <span> 14,500 </span>
-                                                        <span>تومان</span>
-                                                    </div>
-                                                    <div style={{ backgroundColor: '#FFF', borderRadius: '5px', boxShadow: 'rgba(0,0,0,0.25) 0px 2px 7px' }}>
-                                                        <button style={{ color: '#2d9e2d', padding: '5px 15px', fontSize: '1.0rem', background: 'none', border: 'none' }}> <FontAwesomeIcon icon={faPlus} size='sm' /></button>
-                                                        <span style={{ paddingLeft: '15px', paddingRight: '15px' }}>2</span>
-                                                        <button style={{ color: '#FF003B', padding: '5px 15px', fontSize: '1.0rem', background: 'none', border: 'none' }}> <FontAwesomeIcon icon={faMinus} size='sm' /></button>
-                                                    </div>
-                                                </div>
-                                                <div style={{ width: '35%', textAlign: 'center', fontSize: '0.9rem' }}>
-                                                    <span>سیب زمینی ۱.۵ کیلوگرمی (تعداد تقریبی ۶ عدد)</span>
-                                                </div>
-                                                <div style={{ width: '25%' }}>
-                                                    <img src={require('../../../images/products/3.jpg')} style={{ width: '70%', height: '75px', margin: '0 auto', display: 'block', }} />
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li style={{ borderBottom: '1px solid #e4dfdf' }}>
-                                            <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', backgroundColor: '#FFF' }}>
-                                                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '40%' }}>
-                                                    <div style={{ direction: 'rtl', fontSize: '0.7rem', paddingBottom: '5px' }}>
-                                                        <span> 14,500 </span>
-                                                        <span>تومان</span>
-                                                    </div>
-                                                    <div style={{ backgroundColor: '#FFF', borderRadius: '5px', boxShadow: 'rgba(0,0,0,0.25) 0px 2px 7px' }}>
-                                                        <button style={{ color: '#2d9e2d', padding: '5px 15px', fontSize: '1.0rem', background: 'none', border: 'none' }}> <FontAwesomeIcon icon={faPlus} size='sm' /></button>
-                                                        <span style={{ paddingLeft: '15px', paddingRight: '15px' }}>2</span>
-                                                        <button style={{ color: '#FF003B', padding: '5px 15px', fontSize: '1.0rem', background: 'none', border: 'none' }}> <FontAwesomeIcon icon={faMinus} size='sm' /></button>
-                                                    </div>
-                                                </div>
-                                                <div style={{ width: '35%', textAlign: 'center', fontSize: '0.9rem' }}>
-                                                    <span>سیب زمینی ۱.۵ کیلوگرمی (تعداد تقریبی ۶ عدد)</span>
-                                                </div>
-                                                <div style={{ width: '25%' }}>
-                                                    <img src={require('../../../images/products/4.jpg')} style={{ width: '70%', height: '75px', margin: '0 auto', display: 'block', }} />
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li style={{ borderBottom: '1px solid #e4dfdf' }}>
-                                            <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', backgroundColor: '#FFF' }}>
-                                                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '40%' }}>
-                                                    <div style={{ direction: 'rtl', fontSize: '0.7rem', paddingBottom: '5px' }}>
-                                                        <span> 14,500 </span>
-                                                        <span>تومان</span>
-                                                    </div>
-                                                    <div style={{ backgroundColor: '#FFF', borderRadius: '5px', boxShadow: 'rgba(0,0,0,0.25) 0px 2px 7px' }}>
-                                                        <button style={{ color: '#2d9e2d', padding: '5px 15px', fontSize: '1.0rem', background: 'none', border: 'none' }}> <FontAwesomeIcon icon={faPlus} size='sm' /></button>
-                                                        <span style={{ paddingLeft: '15px', paddingRight: '15px' }}>2</span>
-                                                        <button style={{ color: '#FF003B', padding: '5px 15px', fontSize: '1.0rem', background: 'none', border: 'none' }}> <FontAwesomeIcon icon={faMinus} size='sm' /></button>
-                                                    </div>
-                                                </div>
-                                                <div style={{ width: '35%', textAlign: 'center', fontSize: '0.9rem' }}>
-                                                    <span>سیب زمینی ۱.۵ کیلوگرمی (تعداد تقریبی ۶ عدد)</span>
-                                                </div>
-                                                <div style={{ width: '25%' }}>
-                                                    <img src={require('../../../images/products/5.jpg')} style={{ width: '70%', height: '75px', margin: '0 auto', display: 'block', }} />
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li style={{ borderBottom: '1px solid #e4dfdf' }}>
-                                            <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', backgroundColor: '#FFF' }}>
-                                                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '40%' }}>
-                                                    <div style={{ direction: 'rtl', fontSize: '0.7rem', paddingBottom: '5px' }}>
-                                                        <span> 14,500 </span>
-                                                        <span>تومان</span>
-                                                    </div>
-                                                    <div style={{ backgroundColor: '#FFF', borderRadius: '5px', boxShadow: 'rgba(0,0,0,0.25) 0px 2px 7px' }}>
-                                                        <button style={{ color: '#2d9e2d', padding: '5px 15px', fontSize: '1.0rem', background: 'none', border: 'none' }}> <FontAwesomeIcon icon={faPlus} size='sm' /></button>
-                                                        <span style={{ paddingLeft: '15px', paddingRight: '15px' }}>2</span>
-                                                        <button style={{ color: '#FF003B', padding: '5px 15px', fontSize: '1.0rem', background: 'none', border: 'none' }}> <FontAwesomeIcon icon={faMinus} size='sm' /></button>
-                                                    </div>
-                                                </div>
-                                                <div style={{ width: '35%', textAlign: 'center', fontSize: '0.9rem' }}>
-                                                    <span>سیب زمینی ۱.۵ کیلوگرمی (تعداد تقریبی ۶ عدد)</span>
-                                                </div>
-                                                <div style={{ width: '25%' }}>
-                                                    <img src={require('../../../images/products/6.jpg')} style={{ width: '70%', height: '75px', margin: '0 auto', display: 'block', }} />
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li style={{ borderBottom: '1px solid #e4dfdf' }}>
-                                            <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', backgroundColor: '#FFF' }}>
-                                                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '40%' }}>
-                                                    <div style={{ direction: 'rtl', fontSize: '0.7rem', paddingBottom: '5px' }}>
-                                                        <span> 14,500 </span>
-                                                        <span>تومان</span>
-                                                    </div>
-                                                    <div style={{ backgroundColor: '#FFF', borderRadius: '5px', boxShadow: 'rgba(0,0,0,0.25) 0px 2px 7px' }}>
-                                                        <button style={{ color: '#2d9e2d', padding: '5px 15px', fontSize: '1.0rem', background: 'none', border: 'none' }}> <FontAwesomeIcon icon={faPlus} size='sm' /></button>
-                                                        <span style={{ paddingLeft: '15px', paddingRight: '15px' }}>2</span>
-                                                        <button style={{ color: '#FF003B', padding: '5px 15px', fontSize: '1.0rem', background: 'none', border: 'none' }}> <FontAwesomeIcon icon={faMinus} size='sm' /></button>
-                                                    </div>
-                                                </div>
-                                                <div style={{ width: '35%', textAlign: 'center', fontSize: '0.9rem' }}>
-                                                    <span>سیب زمینی ۱.۵ کیلوگرمی (تعداد تقریبی ۶ عدد)</span>
-                                                </div>
-                                                <div style={{ width: '25%' }}>
-                                                    <img src={require('../../../images/products/7.jpg')} style={{ width: '70%', height: '75px', margin: '0 auto', display: 'block', }} />
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li style={{ borderBottom: '1px solid #e4dfdf' }}>
-                                            <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', backgroundColor: '#FFF' }}>
-                                                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '40%' }}>
-                                                    <div style={{ direction: 'rtl', fontSize: '0.7rem', paddingBottom: '5px' }}>
-                                                        <span> 14,500 </span>
-                                                        <span>تومان</span>
-                                                    </div>
-                                                    <div style={{ backgroundColor: '#FFF', borderRadius: '5px', boxShadow: 'rgba(0,0,0,0.25) 0px 2px 7px' }}>
-                                                        <button style={{ color: '#2d9e2d', padding: '5px 15px', fontSize: '1.0rem', background: 'none', border: 'none' }}> <FontAwesomeIcon icon={faPlus} size='sm' /></button>
-                                                        <span style={{ paddingLeft: '15px', paddingRight: '15px' }}>2</span>
-                                                        <button style={{ color: '#FF003B', padding: '5px 15px', fontSize: '1.0rem', background: 'none', border: 'none' }}> <FontAwesomeIcon icon={faMinus} size='sm' /></button>
-                                                    </div>
-                                                </div>
-                                                <div style={{ width: '35%', textAlign: 'center', fontSize: '0.9rem' }}>
-                                                    <span>سیب زمینی ۱.۵ کیلوگرمی (تعداد تقریبی ۶ عدد)</span>
-                                                </div>
-                                                <div style={{ width: '25%' }}>
-                                                    <img src={require('../../../images/products/8.jpg')} style={{ width: '70%', height: '75px', margin: '0 auto', display: 'block', }} />
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li style={{ borderBottom: '1px solid #e4dfdf' }}>
-                                            <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', backgroundColor: '#FFF' }}>
-                                                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '40%' }}>
-                                                    <div style={{ direction: 'rtl', fontSize: '0.7rem', paddingBottom: '5px' }}>
-                                                        <span> 14,500 </span>
-                                                        <span>تومان</span>
-                                                    </div>
-                                                    <div style={{ backgroundColor: '#FFF', borderRadius: '5px', boxShadow: 'rgba(0,0,0,0.25) 0px 2px 7px' }}>
-                                                        <button style={{ color: '#2d9e2d', padding: '5px 15px', fontSize: '1.0rem', background: 'none', border: 'none' }}> <FontAwesomeIcon icon={faPlus} size='sm' /></button>
-                                                        <span style={{ paddingLeft: '15px', paddingRight: '15px' }}>2</span>
-                                                        <button style={{ color: '#FF003B', padding: '5px 15px', fontSize: '1.0rem', background: 'none', border: 'none' }}> <FontAwesomeIcon icon={faMinus} size='sm' /></button>
-                                                    </div>
-                                                </div>
-                                                <div style={{ width: '35%', textAlign: 'center', fontSize: '0.9rem' }}>
-                                                    <span>سیب زمینی ۱.۵ کیلوگرمی (تعداد تقریبی ۶ عدد)</span>
-                                                </div>
-                                                <div style={{ width: '25%' }}>
-                                                    <img src={require('../../../images/products/9.jpg')} style={{ width: '70%', height: '75px', margin: '0 auto', display: 'block', }} />
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li style={{ borderBottom: '1px solid #e4dfdf' }}>
-                                            <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', backgroundColor: '#FFF' }}>
-                                                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '40%' }}>
-                                                    <div style={{ direction: 'rtl', fontSize: '0.7rem', paddingBottom: '5px' }}>
-                                                        <span> 14,500 </span>
-                                                        <span>تومان</span>
-                                                    </div>
-                                                    <div style={{ backgroundColor: '#FFF', borderRadius: '5px', boxShadow: 'rgba(0,0,0,0.25) 0px 2px 7px' }}>
-                                                        <button style={{ color: '#2d9e2d', padding: '5px 15px', fontSize: '1.0rem', background: 'none', border: 'none' }}> <FontAwesomeIcon icon={faPlus} size='sm' /></button>
-                                                        <span style={{ paddingLeft: '15px', paddingRight: '15px' }}>2</span>
-                                                        <button style={{ color: '#FF003B', padding: '5px 15px', fontSize: '1.0rem', background: 'none', border: 'none' }}> <FontAwesomeIcon icon={faMinus} size='sm' /></button>
-                                                    </div>
-                                                </div>
-                                                <div style={{ width: '35%', textAlign: 'center', fontSize: '0.9rem' }}>
-                                                    <span>سیب زمینی ۱.۵ کیلوگرمی (تعداد تقریبی ۶ عدد)</span>
-                                                </div>
-                                                <div style={{ width: '25%' }}>
-                                                    <img src={require('../../../images/products/1.jpg')} style={{ width: '70%', height: '75px', margin: '0 auto', display: 'block', }} />
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li style={{ borderBottom: '1px solid #e4dfdf' }}>
-                                            <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', backgroundColor: '#FFF' }}>
-                                                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '40%' }}>
-                                                    <div style={{ direction: 'rtl', fontSize: '0.7rem', paddingBottom: '5px' }}>
-                                                        <span> 14,500 </span>
-                                                        <span>تومان</span>
-                                                    </div>
-                                                    <div style={{ backgroundColor: '#FFF', borderRadius: '5px', boxShadow: 'rgba(0,0,0,0.25) 0px 2px 7px' }}>
-                                                        <button style={{ color: '#2d9e2d', padding: '5px 15px', fontSize: '1.0rem', background: 'none', border: 'none' }}> <FontAwesomeIcon icon={faPlus} size='sm' /></button>
-                                                        <span style={{ paddingLeft: '15px', paddingRight: '15px' }}>2</span>
-                                                        <button style={{ color: '#FF003B', padding: '5px 15px', fontSize: '1.0rem', background: 'none', border: 'none' }}> <FontAwesomeIcon icon={faMinus} size='sm' /></button>
-                                                    </div>
-                                                </div>
-                                                <div style={{ width: '35%', textAlign: 'center', fontSize: '0.9rem' }}>
-                                                    <span>سیب زمینی ۱.۵ کیلوگرمی (تعداد تقریبی ۶ عدد)</span>
-                                                </div>
-                                                <div style={{ width: '25%' }}>
-                                                    <img src={require('../../../images/products/1.jpg')} style={{ width: '70%', height: '75px', margin: '0 auto', display: 'block', }} />
-                                                </div>
-                                            </div>
-                                        </li>
-
+                                        {
+                                            this.props.cartItems &&
+                                            this.props.cartItems.map(c =>
+                                                <li style={{ borderBottom: '1px solid #e4dfdf' }} key={c.product.id}>
+                                                    <CartItemBox cartItem={c}
+                                                        add={this.props.addToCart}
+                                                        remove={this.props.removeFromCart}
+                                                        />
+                                                </li>
+                                            )
+                                        }
                                     </div>
                                 </ul>
                             </div>
@@ -307,15 +95,17 @@ class SidePanelBasket extends Component {
                                 </div>
                                 <div style={{ fontSize: '1.1rem', display: 'flex', justifyContent: 'space-between', marginTop: '5px' }}>
                                     <label className='btn btn-danger' onClick={(ev) => { ev.stopPropagation(); alert('Ha....Success'); }}
-                                        style={{ height: 'fit-content', width: '12%', paddingTop: '10px', paddingBottom: '10px !important' }}>
+                                        style={{ height: 'fit-content', width: '12%', paddingTop: '10px', paddingBottom: '10px !important' }}
+                                        onClick={ () => this.props.clearCart() }
+                                        >
                                         <span><FontAwesomeIcon icon={faTrashAlt} size='sm' style={{ color: '#FFF' }} /></span>
                                     </label>
                                     <label className='btn' onClick={(ev) => { ev.stopPropagation(); alert('Ha....Success'); }}
-                                        style={{ height: 'fit-content', width: '85%', paddingTop: '10px', paddingBottom: '10px !important', position: 'relative', backgroundColor:'#3cad2f', color: '#FFF' }}>
+                                        style={{ height: 'fit-content', width: '85%', paddingTop: '10px', paddingBottom: '10px !important', position: 'relative', backgroundColor: '#3cad2f', color: '#FFF' }}>
                                         <span style={{ fontSize: '0.8rem', marginRight: '-30px' }}>تایید و ثبت سفارش</span>
                                         <span style={{ backgroundColor: '#166f16', borderRadius: '5px', position: 'absolute', left: '2%', fontSize: '0.8rem', padding: '2px 5px', direction: 'rtl' }}>
-                                            <span>127,400</span>
-                                            <span style={{ paddingRight: '8px'}}>تومان</span>
+                                            <span>{this.props.cartPrice}</span>
+                                            <span style={{ paddingRight: '8px' }}>تومان</span>
                                         </span>
                                     </label>
                                 </div>
@@ -329,11 +119,17 @@ class SidePanelBasket extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    showPanelState: state.common.showBasketPanel
+    showPanelState: state.common.showBasketPanel,
+    cartItems: state.cart.cart,
+    cartPrice: state.cart.cartPrice,
+    cartDiscount: state.cart.cartDiscount
 })
 
 const mapDispatchToProps = {
-    toggleBasketSidePanel
+    toggleBasketSidePanel,
+    addToCart,
+    removeFromCart,
+    clearCart
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SidePanelBasket);
