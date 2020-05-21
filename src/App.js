@@ -37,7 +37,7 @@ import CategoryBoxes from './components/CategoryBoxes';
 import Banner from './components/Banner';
 import BottomNav from './components/BottomNav';
 
-import { BrowserRouter as Router, Route, Link, Redirect, Switch } from "react-router-dom";
+// import { BrowserRouter as Router, Route, Link, Redirect, Switch } from "react-router-dom";
 
 class App extends Component {
 

@@ -19,20 +19,22 @@ import 'bootstrap/dist/js/bootstrap';
 
 import { BrowserRouter as Router, Route, Redirect, Switch } from "react-router-dom";
 import CategoryPage from './components/CategoryPage';
+import Checkout from './components/Checkout';
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={STORE}>
-      <Layout>
-        <Router>
+      <Router>
+        <Layout>
           <Switch>
             <Route path="/" exact={true} component={App} />
             <Route path='/categories/:catID' exact={true} component={CategoryPage} />
+            <Route path='/checkout' component={Checkout} />
             {/* <Route path='/categories/sweets' component={CategoryPage} /> */}
             <Redirect to="/" />
           </Switch>
-        </Router>
-      </Layout>
+        </Layout>
+      </Router>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')

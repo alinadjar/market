@@ -5,6 +5,8 @@ import './sidePanel.css';
 import { toggleBasketSidePanel } from '../../../iRedux/Actions/common';
 import { addToCart, removeFromCart, clearCart } from '../../../iRedux/Actions/cart_Actions';
 
+import { withRouter } from "react-router-dom";
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMinus, faPlus, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 import CartItemBox from './CartItemBox';
@@ -82,7 +84,7 @@ class SidePanelBasket extends Component {
                                                     <CartItemBox cartItem={c}
                                                         add={this.props.addToCart}
                                                         remove={this.props.removeFromCart}
-                                                        />
+                                                    />
                                                 </li>
                                             )
                                         }
@@ -96,11 +98,15 @@ class SidePanelBasket extends Component {
                                 <div style={{ fontSize: '1.1rem', display: 'flex', justifyContent: 'space-between', marginTop: '5px' }}>
                                     <label className='btn btn-danger' onClick={(ev) => { ev.stopPropagation(); alert('Ha....Success'); }}
                                         style={{ height: 'fit-content', width: '12%', paddingTop: '10px', paddingBottom: '10px !important' }}
-                                        onClick={ () => this.props.clearCart() }
-                                        >
+                                        onClick={() => this.props.clearCart()}
+                                    >
                                         <span><FontAwesomeIcon icon={faTrashAlt} size='sm' style={{ color: '#FFF' }} /></span>
                                     </label>
-                                    <label className='btn' onClick={(ev) => { ev.stopPropagation(); alert('Ha....Success'); }}
+                                    <label className='btn' onClick={(ev) => {
+                                        ev.stopPropagation();
+                                        this.toggleSidePanel();
+                                        this.props.history.push('/checkout')
+                                    }}
                                         style={{ height: 'fit-content', width: '85%', paddingTop: '10px', paddingBottom: '10px !important', position: 'relative', backgroundColor: '#3cad2f', color: '#FFF' }}>
                                         <span style={{ fontSize: '0.8rem', marginRight: '-30px' }}>تایید و ثبت سفارش</span>
                                         <span style={{ backgroundColor: '#166f16', borderRadius: '5px', position: 'absolute', left: '2%', fontSize: '0.8rem', padding: '2px 5px', direction: 'rtl' }}>
@@ -132,4 +138,4 @@ const mapDispatchToProps = {
     clearCart
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SidePanelBasket);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(SidePanelBasket));
