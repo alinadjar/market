@@ -6,6 +6,7 @@ import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons'
 
 import { connect } from 'react-redux';
 import { addToCart } from '../../iRedux/Actions/cart_Actions';
+import Footer from '../Footer';
 
 import './checkout.css';
 
@@ -17,6 +18,7 @@ class Checkout extends Component {
     }
     render() {
         return (
+            <>
             <div>
                 <div className='row' style={{ direction: 'rtl', backgroundColor: '#FFF', marginRight: 0, marginLeft: 0 }}>
                     <img src={headerLOGO} alt="header logo" style={{ width: '230px', maxWidth: '100%' }} alt=''/>
@@ -154,6 +156,8 @@ class Checkout extends Component {
                     </div>
                 </div>
             </div>
+            {/* <Footer /> */}
+            </>
         );
     }
 }

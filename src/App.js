@@ -56,7 +56,7 @@ class App extends Component {
 
     setTimeout(() => {
       this.setState({ startupBlinking: !this.state.startupBlinking });
-    }, 50) // 5150
+    }, 5150) // 5150
   }
 
   render() {

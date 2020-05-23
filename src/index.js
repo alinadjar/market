@@ -6,7 +6,8 @@ import * as serviceWorker from './serviceWorker';
 
 import Layout from './components/Layout/Layout';
 import { Provider } from 'react-redux';
-import STORE from './iRedux';
+// import STORE from './iRedux';
+
 
 import 'bootstrap/dist/css/bootstrap.css';
 
@@ -21,20 +22,27 @@ import { BrowserRouter as Router, Route, Redirect, Switch } from "react-router-d
 import CategoryPage from './components/CategoryPage';
 import Checkout from './components/Checkout';
 
+import { PersistGate } from 'redux-persist/integration/react'
+import { persistStore } from 'redux-persist';
+
+import store, {persistor} from './iRedux';
+
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={STORE}>
-      <Router>
-        <Layout>
-          <Switch>
-            <Route path="/" exact={true} component={App} />
-            <Route path='/categories/:catID?' exact={true} component={CategoryPage} />
-            <Route path='/checkout' component={Checkout} />
-            {/* <Route path='/categories/sweets' component={CategoryPage} /> */}
-            <Redirect to="/" />
-          </Switch>
-        </Layout>
-      </Router>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <Router>
+          <Layout>
+            <Switch>
+              <Route path="/" exact={true} component={App} />
+              <Route path='/categories/:catID?' exact={true} component={CategoryPage} />
+              <Route path='/checkout' component={Checkout} />
+              {/* <Route path='/categories/sweets' component={CategoryPage} /> */}
+              <Redirect to="/" />
+            </Switch>
+          </Layout>
+        </Router>
+      </PersistGate>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')
