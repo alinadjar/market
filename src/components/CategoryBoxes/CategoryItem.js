@@ -20,6 +20,7 @@ class CategoryItem extends Component {
             <img src={require(`../../images/${this.props.picAddr}`)}
               style={{ width: '100%', height: 'auto' }}
               className='img-fluid'
+              alt='some txt'
             />
           </span>
           <h3 style={{ fontSize: '.8em' }}>{this.props.name}</h3>

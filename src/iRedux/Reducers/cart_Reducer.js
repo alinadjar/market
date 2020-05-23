@@ -20,7 +20,7 @@ const CartReducer = (storeData, action) => {
             newStore.cartPrice += (p.price - p.discount) * q;
             newStore.cartDiscount += p.discount * q;
 
-            if(existing && existing.quantity == 0) {
+            if(existing && existing.quantity === 0) {
                 newStore.cart = newStore.cart.filter(item => item.product.id !== p.id);
             }
             

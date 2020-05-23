@@ -26,7 +26,7 @@ class ProductBox extends Component {
                     </span>
                     <a href='/' style={{ textDecoration: 'none' }}>
                         <div>
-                            <img src={require(`../../images/products/${p.images[0].imageSrc}`)} className='img-responsive' />
+                            <img src={require(`../../images/products/${p.images[0].imageSrc}`)} className='img-responsive' alt='some txt' />
                             <span className='spanDiscount'>تخفیف {p.discountRatio} %</span>
                         </div>
                         <div className='bWrapper'>

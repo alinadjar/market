@@ -52,13 +52,13 @@ class Footer extends Component {
                         <div className='col-12 col-sm-3' style={{ height: '200px' }}>
                             <div className='row'>
                                 <div className='col-4'>
-                                    <img className='img-fluid' src={require('../../images/verifyLogo/union.png')} />
+                                    <img className='img-fluid' src={require('../../images/verifyLogo/union.png')} alt='some txt'/>
                                 </div>
                                 <div className='col-4'>
-                                    <img className='img-fluid' src={require('../../images/verifyLogo/enamad.png')} />
+                                    <img className='img-fluid' src={require('../../images/verifyLogo/enamad.png')} alt='some txt'/>
                                 </div>
                                 <div className='col-4'>
-                                    <img className='img-fluid' src={require('../../images/verifyLogo/rasaneh.png')} />
+                                    <img className='img-fluid' src={require('../../images/verifyLogo/rasaneh.png')} alt='some txt'/>
                                 </div>
                             </div>
                         </div>

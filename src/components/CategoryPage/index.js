@@ -35,7 +35,7 @@ class CategoryPage extends Component {
                                         </span>
                                         <a href='/' style={{ textDecoration: 'none' }}>
                                             <div>
-                                                <img src={require('../../images/products/9.jpg')} className='img-responsive' />
+                                                <img src={require('../../images/products/9.jpg')} className='img-responsive' alt=''/>
                                                 <span className='spanDiscount'>تخفیف 14 %</span>
                                             </div>
                                             <div className='bWrapper'>
@@ -62,7 +62,7 @@ class CategoryPage extends Component {
                                         </span>
                                         <a href='/' style={{ textDecoration: 'none' }}>
                                             <div>
-                                                <img src={require('../../images/products/8.jpg')} className='img-responsive' />
+                                                <img src={require('../../images/products/8.jpg')} className='img-responsive' alt=''/>
                                                 <span className='spanDiscount'>تخفیف 14 %</span>
                                             </div>
                                             <div className='bWrapper'>

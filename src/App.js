@@ -93,7 +93,7 @@ class App extends Component {
             <div className='row' style={{ direction: 'rtl', margin: 0, height: '250px', overflow: 'hidden' }}>
               <div className='col-md-4 d-none d-md-block' style={{ height: '100%' }}>
                 <img className='rounded img-fluid' src={require('./images/Mayonaise2.jpg')}
-                  style={{ height: '300px', margin: '0 auto', display: 'block' }} />
+                  style={{ height: '300px', margin: '0 auto', display: 'block' }}  alt=''/>
               </div>
               <div className='col-md-8 col-sm-12' style={{ height: '100%' }}>
                 <div id="carouselExampleIndicators" className="carousel slide" data-interval="2000" data-ride="carousel">
@@ -138,10 +138,10 @@ class App extends Component {
                 autoplay={false}
                 smartSpeed={500}
                 margin={30} >
-                <div><img className="img rounded" src={require('./images/4Scroll/1.jpg')} /></div>
-                <div><img className="img rounded" src={require('./images/4Scroll/2.jpg')} /></div>
-                <div><img className="img rounded" src={require('./images/4Scroll/3.jpg')} /></div>
-                <div><img className="img rounded" src={require('./images/4Scroll/4.jpg')} /></div>
+                <div><img className="img rounded" src={require('./images/4Scroll/1.jpg')} alt='some txt'/></div>
+                <div><img className="img rounded" src={require('./images/4Scroll/2.jpg')} alt='some txt'/></div>
+                <div><img className="img rounded" src={require('./images/4Scroll/3.jpg')} alt='some txt'/></div>
+                <div><img className="img rounded" src={require('./images/4Scroll/4.jpg')} alt='some txt'/></div>
               </OwlCarousel>
             </div>
 
@@ -162,9 +162,9 @@ class App extends Component {
                 autoplay={false}
                 smartSpeed={500}
                 margin={30} >
-                <div><img className="img rounded" src={require('./images/3Scroll/1.jpg')} /></div>
-                <div><img className="img rounded" src={require('./images/3Scroll/2.jpg')} /></div>
-                <div><img className="img rounded" src={require('./images/3Scroll/3.jpg')} /></div>
+                <div><img className="img rounded" src={require('./images/3Scroll/1.jpg')}alt=''/></div>
+                <div><img className="img rounded" src={require('./images/3Scroll/2.jpg')} alt=''/></div>
+                <div><img className="img rounded" src={require('./images/3Scroll/3.jpg')} alt=''/></div>
               </OwlCarousel>
             </div>
 

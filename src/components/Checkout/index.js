@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import headerLOGO from '../../images/headerLOGO.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMinus, faPlus, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
+import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons'
 // import { faTimes } from '@fortawesome/free-solid-svg-icons'
 
 import { connect } from 'react-redux';
@@ -19,7 +19,7 @@ class Checkout extends Component {
         return (
             <div>
                 <div className='row' style={{ direction: 'rtl', backgroundColor: '#FFF', marginRight: 0, marginLeft: 0 }}>
-                    <img src={headerLOGO} alt="header logo" style={{ width: '230px', maxWidth: '100%' }} />
+                    <img src={headerLOGO} alt="header logo" style={{ width: '230px', maxWidth: '100%' }} alt=''/>
                 </div>
                 <div className='row' style={{ marginRight: 0, marginLeft: 0 }}>
                     <div className='col-12 col-lg-3' style={{ padding: '10px 4%', textAlign: 'right', fontSize: '0.8rem' }}>
@@ -65,7 +65,7 @@ class Checkout extends Component {
                                     this.props.cartItems &&
                                     this.props.cartItems.map(c =>
                                         <tr>
-                                            <td><img src={require(`../../images/products/${c.product.images[0].imageSrc}`)} style={{ width: '40%', maxWidth: '180px', margin: '0 auto', display: 'block', borderRadius: '50%' }} /></td>
+                                            <td><img src={require(`../../images/products/${c.product.images[0].imageSrc}`)} style={{ width: '40%', maxWidth: '180px', margin: '0 auto', display: 'block', borderRadius: '50%' }} alt='' /></td>
                                             <td>{c.product.title}</td>
                                             <td className='tdPriceCheckout'>
                                                 <div><small style={{ textDecoration: 'line-through' }}>{c.product.price}</small></div>
@@ -103,7 +103,7 @@ class Checkout extends Component {
                                         <>
                                             <tr>
                                                 <th></th>
-                                                <td><img src={require(`../../images/products/${c.product.images[0].imageSrc}`)} style={{ width: '40%', maxWidth: '180px', margin: '0 auto', display: 'block', borderRadius: '50%' }} /></td>
+                                                <td><img src={require(`../../images/products/${c.product.images[0].imageSrc}`)} style={{ width: '40%', maxWidth: '180px', margin: '0 auto', display: 'block', borderRadius: '50%' }} alt=''/></td>
                                             </tr>
                                             <tr>
                                                 <th>محصول</th>

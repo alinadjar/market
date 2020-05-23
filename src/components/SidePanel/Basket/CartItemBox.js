@@ -35,7 +35,7 @@ class CartItemBox extends Component {
                     <span>{cartItem.product.title}</span>
                 </div>
                 <div style={{ width: '25%' }}>
-                    <img src={require(`../../../images/products/${cartItem.product.images[0].imageSrc}`)} style={{ width: '70%', height: '75px', margin: '0 auto', display: 'block' }} />
+                    <img src={require(`../../../images/products/${cartItem.product.images[0].imageSrc}`)} style={{ width: '70%', height: '75px', margin: '0 auto', display: 'block' }} alt=''/>
                 </div>
             </div>
         );
