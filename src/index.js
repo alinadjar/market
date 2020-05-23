@@ -28,7 +28,7 @@ ReactDOM.render(
         <Layout>
           <Switch>
             <Route path="/" exact={true} component={App} />
-            <Route path='/categories/:catID' exact={true} component={CategoryPage} />
+            <Route path='/categories/:catID?' exact={true} component={CategoryPage} />
             <Route path='/checkout' component={Checkout} />
             {/* <Route path='/categories/sweets' component={CategoryPage} /> */}
             <Redirect to="/" />

@@ -11,6 +11,7 @@ import headerLOGO from '../../images/headerLOGO.png';
 
 import { connect } from 'react-redux';
 import { toggleLoadingState, toggleBasketSidePanel } from '../../iRedux/Actions/common';
+import { Link } from "react-router-dom";
 
 
 
@@ -22,7 +23,10 @@ class Header extends Component {
     render() {
         return (
             <header style={{
-                backgroundColor: 'bisque', position: 'fixed', width: '100%', top: 0, left: 0, right: 0, zIndex: 100,
+                // backgroundColor: 'bisque',
+                position: 'fixed',
+                backgroundImage: 'radial-gradient(circle, #46c35c 0%, #13531f 100%)',
+                width: '100%', top: 0, left: 0, right: 0, zIndex: 100,
                 boxShadow: '0 8px 6px -6px rgba(68, 68, 68, 0.2)'
             }} >
                 <div className="row flex-column-reverse flex-lg-row" style={{ margin: 0 }}>
@@ -55,7 +59,7 @@ class Header extends Component {
                     <div className="col-lg-3 col-12" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                         <img className='d-block d-lg-none' src={headerLOGO} alt="header logo" style={{ width: '150px', maxWidth: '100%', alignItems: 'left' }} />
                         <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'nowrap', direction: 'rtl' }}>
-                            <button type="button" className="btn btn-success col-xs-6" style={{ direction: 'rtl', position: 'relative' }}                                
+                            <button type="button" className="btn btn-success col-xs-6" style={{ direction: 'rtl', position: 'relative' }}
                                 onClick={() => this.props.toggleBasketSidePanel()}
                             >
                                 <span className="badge badge-danger" style={{ position: 'absolute', top: '-10px', right: '-8px', fontSize: '0.9rem', borderRadius: '50%' }}>{this.props.cartItems}</span>
@@ -63,7 +67,7 @@ class Header extends Component {
                                 <span style={{ padding: '0.2em' }}>سبدخرید</span>
                             </button>
                             <button type="button" className="btn btn-outline-success col-xs-6" style={{ marginRight: '0.4em', }}
-                               onClick={() => this.props.toggleLoading()}
+                                onClick={() => this.props.toggleLoading()}
                             >
                                 <FontAwesomeIcon icon={faUserCircle} />
                                 <span style={{ padding: '0.2em' }}>ورود/عضویت</span>
@@ -75,37 +79,41 @@ class Header extends Component {
                 <div>
                     <nav className="row" style={{ margin: 0, padding: '.9em 0' }}>
                         <div className='col-3 col-md-3 text-center'>
-                            <div className='d-none d-sm-inline-block'>
+                            <div className='d-none d-sm-inline-block' style={{ cursor: 'pointer', color:'#EED' }}
+                                onClick={() => this.props.toggleBasketSidePanel()}>
                                 <span className='d-none d-md-inline-block pr-2'>
-                                    صفحه اصلی
-                    </span>
+                                    سبد خرید
+                                </span>
                                 <FontAwesomeIcon icon={faShoppingCart} size="lg" />
                             </div>
                         </div>
                         <div className='col-3 col-md-3 text-center'>
-                            <div className='d-none d-sm-inline-block'>
-                                <span className='d-none d-md-inline-block pr-2'>
-                                    صفحه اصلی
-            </span>
-                                <FontAwesomeIcon icon={faListUl} size="lg" />
+                            <div className='d-none d-sm-inline-block' style={{ cursor: 'pointer', color:'#EED' }}>
+                                <Link to='/categories' style={{ color: '#EED'}}>
+                                    <span className='d-none d-md-inline-block pr-2'>
+                                        دسته بندی
+                                    </span>
+                                    <FontAwesomeIcon icon={faListUl} size="lg" />
+                                </Link>
                             </div>
                         </div>
                         <div className='col-3 col-md-3 text-center'>
-                            <div className='d-none d-sm-inline-block'>
-                                <span className='d-none d-md-inline-block pr-2'>
-                                    صفحه اصلی
-            </span>
-                                <FontAwesomeIcon icon={faHome} size="lg" />
-                            </div>
-                        </div>
-                        <div className='col-3 col-md-3 text-center'>
-                            <div className='d-none d-sm-inline-block'>
-                                <a href='/'>
+                            <div className='d-none d-sm-inline-block' style={{ cursor: 'pointer', color:'#EED' }}>
+                                <Link to='/' style={{ color:'#EED'}}>
                                     <span className='d-none d-md-inline-block pr-2'>
                                         صفحه اصلی
-              </span>
-                                    <FontAwesomeIcon icon={faMapMarkerAlt} size="lg" />
-                                </a>
+                                    </span>
+                                    <FontAwesomeIcon icon={faHome} size="lg" />
+                                </Link>
+                            </div>
+                        </div>
+                        <div className='col-3 col-md-3 text-center'>
+                            <div className='d-none d-sm-inline-block' style={{ cursor: 'pointer', color:'#EED' }}
+                                onClick={() => alert('OK')}>
+                                <span className='d-none d-md-inline-block pr-2'>
+                                    آدرس شما
+                                    </span>
+                                <FontAwesomeIcon icon={faMapMarkerAlt} size="lg" />
                             </div>
                         </div>
                     </nav>
