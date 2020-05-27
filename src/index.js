@@ -23,8 +23,6 @@ import CategoryPage from './components/CategoryPage';
 import Checkout from './components/Checkout';
 
 import { PersistGate } from 'redux-persist/integration/react'
-import { persistStore } from 'redux-persist';
-
 import store, {persistor} from './iRedux';
 
 ReactDOM.render(

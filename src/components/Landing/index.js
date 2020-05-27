@@ -10,12 +10,18 @@ import 'flickity/dist/flickity.pkgd';
 import 'flickity/css/flickity.css';
 
 import './landingPage.css';
+import ProductModal from '../Common/ProductModal';
+
+
+// import toastr from 'toastr/toastr'
 
 
 class Landing extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            showProductModal: false,
+            selectedProduct: null
         }
     }
 
@@ -107,90 +113,107 @@ class Landing extends Component {
         });
 
 
+        // toastr.info('sonme test ...');
     }// end componentDidMount
+
+
+    boxClickHandler = (p) => {
+        // toastr.info('sonme test ...');
+        this.setState({ showProductModal: true, selectedProduct: p });
+    }
+
+    closeModal = () => {
+        this.setState({ showProductModal: false, selectedProduct: null });
+    }
 
     render() {
         return (
-            <div>
-                <section style={{
-                    boxShadow: '0 8px 6px -6px rgba(68, 68, 68, 0.35)', margin: '40px auto', padding: '5px', paddingBottom: '40px',
-                    background: 'linear-gradient(135deg, rgb(255, 255, 255) 20%, rgb(255, 255, 255) 80%)', borderRadius: '8px',
-                }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', padding: '0 2%' }}>
-                        <div><a href="/" style={{ fontSize: '0.9rem', color: '#007bFF' }}> مشاهده همه</a></div>
-                        <h3><a href='/' style={{ fontSize: '1.1rem', color: '#444' }}> لبنیات</a></h3>
-                    </div>
+            <>
+                <div>
+                    <section style={{
+                        boxShadow: '0 8px 6px -6px rgba(68, 68, 68, 0.35)', margin: '40px auto', padding: '5px', paddingBottom: '40px',
+                        background: 'linear-gradient(135deg, rgb(255, 255, 255) 20%, rgb(255, 255, 255) 80%)', borderRadius: '8px',
+                    }}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', padding: '0 2%' }}>
+                            <div><a href="/" style={{ fontSize: '0.9rem', color: '#007bFF' }}> مشاهده همه</a></div>
+                            <h3><a href='/' style={{ fontSize: '1.1rem', color: '#444' }}> لبنیات</a></h3>
+                        </div>
 
-                    <div className="myCarousel">
-                        {
-                            this.props.products != null &&
-                            this.props.products.map(p =>
-                                <div className="carousel-cell" key={p.id}>
-                                    <ProductBox product={p} add2Cart={this.props.addToCart} />
-                                </div>
+                        <div className="myCarousel">
+                            {
+                                this.props.products != null &&
+                                this.props.products.map(p =>
+                                    <div className="carousel-cell" key={p.id}>
+                                        <ProductBox product={p} add2Cart={this.props.addToCart} boxClick={this.boxClickHandler}/>
+                                    </div>
                                 )
-                        }                                                                                                                    
-                    </div>
-                </section>
+                            }
+                        </div>
+                    </section>
 
 
 
-                <section style={{
-                    boxShadow: '0 8px 6px -6px rgba(68, 68, 68, 0.35)', margin: '40px auto', padding: '5px', paddingBottom: '40px',
-                    background: 'linear-gradient(135deg, rgb(255, 255, 255) 20%, rgb(255, 255, 255) 80%)', borderRadius: '8px',
-                }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', padding: '0 2%' }}>
-                        <div><a href="/" style={{ fontSize: '0.9rem', color: '#007bFF' }}> مشاهده همه</a></div>
-                        <h3><a href='/' style={{ fontSize: '1.1rem', color: '#444' }}> لبنیات</a></h3>
-                    </div>
-                    <div className="myCarousel">
-                        {
-                            this.props.products != null &&
-                            this.props.products.map(p =>
-                                <div className="carousel-cell" key={p.id}>
-                                    <ProductBox product={p} add2Cart={this.props.addToCart} />
-                                </div>
+                    <section style={{
+                        boxShadow: '0 8px 6px -6px rgba(68, 68, 68, 0.35)', margin: '40px auto', padding: '5px', paddingBottom: '40px',
+                        background: 'linear-gradient(135deg, rgb(255, 255, 255) 20%, rgb(255, 255, 255) 80%)', borderRadius: '8px',
+                    }}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', padding: '0 2%' }}>
+                            <div><a href="/" style={{ fontSize: '0.9rem', color: '#007bFF' }}> مشاهده همه</a></div>
+                            <h3><a href='/' style={{ fontSize: '1.1rem', color: '#444' }}> لبنیات</a></h3>
+                        </div>
+                        <div className="myCarousel">
+                            {
+                                this.props.products != null &&
+                                this.props.products.map(p =>
+                                    <div className="carousel-cell" key={p.id}>
+                                        <ProductBox product={p} add2Cart={this.props.addToCart} boxClick={this.boxClickHandler}/>
+                                    </div>
                                 )
-                        }                                                                                                                    
-                    </div>
-                </section>
+                            }
+                        </div>
+                    </section>
 
 
 
-                {/* Banner */}
-                <Banner picAddr={'CrossBanners/crossBanner4.jpg'} alt={'سبدتو پر کن'} />
-                <Banner picAddr={'CrossBanners/crossBanner5.jpg'} alt={'سبدتو پر کن'} />
+                    {/* Banner */}
+                    <Banner picAddr={'CrossBanners/crossBanner4.jpg'} alt={'سبدتو پر کن'} />
+                    <Banner picAddr={'CrossBanners/crossBanner5.jpg'} alt={'سبدتو پر کن'} />
 
 
 
 
-                <section style={{
-                    boxShadow: '0 8px 6px -6px rgba(68, 68, 68, 0.1)', margin: '40px auto', padding: '5px', paddingBottom: '40px',
-                    background: 'linear-gradient(135deg, rgb(255, 255, 255) 20%, rgb(255, 255, 255) 80%)', borderRadius: '8px',
-                }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', padding: '0 2%' }}>
-                        <div><a href="/" style={{ fontSize: '0.9rem', color: '#007bFF' }}> مشاهده همه</a></div>
-                        <h3><a href='/' style={{ fontSize: '1.1rem', color: '#444' }}> لبنیات</a></h3>
-                    </div>
-                    <div className="myCarousel">
-                        {
-                            this.props.products != null &&
-                            this.props.products.map(p =>
-                                <div className="carousel-cell" key={p.id}>
-                                    <ProductBox product={p} add2Cart={this.props.addToCart} />
-                                </div>
+                    <section style={{
+                        boxShadow: '0 8px 6px -6px rgba(68, 68, 68, 0.1)', margin: '40px auto', padding: '5px', paddingBottom: '40px',
+                        background: 'linear-gradient(135deg, rgb(255, 255, 255) 20%, rgb(255, 255, 255) 80%)', borderRadius: '8px',
+                    }}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', padding: '0 2%' }}>
+                            <div><a href="/" style={{ fontSize: '0.9rem', color: '#007bFF' }}> مشاهده همه</a></div>
+                            <h3><a href='/' style={{ fontSize: '1.1rem', color: '#444' }}> لبنیات</a></h3>
+                        </div>
+                        <div className="myCarousel">
+                            {
+                                this.props.products != null &&
+                                this.props.products.map(p =>
+                                    <div className="carousel-cell" key={p.id}>
+                                        <ProductBox product={p} add2Cart={this.props.addToCart} boxClick={this.boxClickHandler}/>
+                                    </div>
                                 )
-                        }                                                                                                                    
-                    </div>
-                </section>
+                            }
+                        </div>
+                    </section>
 
 
 
-                {/* Banner */}
-                <Banner picAddr={'CrossBanners/crossBanner3.jpg'} alt={'سبدتو پر کن'} />
+                    {/* Banner */}
+                    <Banner picAddr={'CrossBanners/crossBanner3.jpg'} alt={'سبدتو پر کن'} />
 
 
-            </div>
+                </div>
+                {
+                    this.state.showProductModal &&
+                    <ProductModal close={this.closeModal} product={this.state.selectedProduct} add2Cart={this.props.addToCart} />
+                }
+            </>
         );
     }
 }

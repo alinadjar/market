@@ -17,7 +17,6 @@ import Pace from 'react-pace-progress'
 
 
 
-
 // import 'jquery';
 // import 'popper.js/dist/popper';
 // import 'bootstrap/dist/js/bootstrap';
@@ -37,6 +36,7 @@ import CategoryBoxes from './components/CategoryBoxes';
 import Banner from './components/Banner';
 import BottomNav from './components/BottomNav';
 
+
 // import { BrowserRouter as Router, Route, Link, Redirect, Switch } from "react-router-dom";
 
 class App extends Component {
@@ -53,10 +53,12 @@ class App extends Component {
 
     this.props.loadData(DataTypes.PRODUCTS);
     this.props.loadData(DataTypes.CATEGORIES);
+    
+    
 
     setTimeout(() => {
       this.setState({ startupBlinking: !this.state.startupBlinking });
-    }, 5150) // 5150
+    }, 51) // 5150
   }
 
   render() {

@@ -41,7 +41,7 @@
 
 
 .blinking{
-  animation:blinkingText 2.5s infinite ease-in-out;
+  animation:blinkingText 2.3s infinite ease-in-out;
 }
 @keyframes blinkingText{
   0% {
