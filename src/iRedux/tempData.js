@@ -6,7 +6,7 @@ export const data = {
     [DataTypes.CATEGORIES]: ["Watersports", "Soccer", "Chess", "Running"],
     [DataTypes.PRODUCTS]: [
         {
-            id: 346790,
+            id: 346790,            
             title: "مایع دستشویی کرمی زرد اوه ۲ گرمی",
             price: 45000,
             discount: 2813,
@@ -14,13 +14,14 @@ export const data = {
             productId: null,
             containerPrice: 0,
             vat: 0,
+            availableInStock: false,
             images: [
               {
                 "imageThumbnailSrc": "1.jpg",
                 "imageSrc": "1.jpg"
               }
             ],
-            capacity: 4,
+            maxOrderable: 4,
             brand: {
               "id": 267,
               "title": "اوه",
@@ -37,13 +38,14 @@ export const data = {
             productId: null,
             containerPrice: 0,
             vat: 0,
+            availableInStock: true,
             images: [
               {
                 "imageThumbnailSrc": "2.jpg",
                 "imageSrc": "2.jpg"
               }
             ],
-            capacity: 4,
+            maxOrderable: 4,
             brand: {
               "id": 267,
               "title": "اوه",
@@ -60,13 +62,14 @@ export const data = {
             productId: null,
             containerPrice: 0,
             vat: 0,
+            availableInStock: true,
             images: [
               {
                 "imageThumbnailSrc": "3.jpg",
                 "imageSrc": "3.jpg"
               }
             ],
-            capacity: 4,
+            maxOrderable: 4,
             brand: {
               "id": 267,
               "title": "اوه",
@@ -83,13 +86,14 @@ export const data = {
             productId: null,
             containerPrice: 0,
             vat: 0,
+            availableInStock: true,
             images: [
               {
                 "imageThumbnailSrc": "4.jpg",
                 "imageSrc": "4.jpg"
               }
             ],
-            capacity: 4,
+            maxOrderable: 4,
             brand: {
               "id": 267,
               "title": "اوه",
@@ -106,13 +110,14 @@ export const data = {
             productId: null,
             containerPrice: 0,
             vat: 0,
+            availableInStock: true,
             images: [
               {
                 "imageThumbnailSrc": "5.jpg",
                 "imageSrc": "5.jpg"
               }
             ],
-            capacity: 4,
+            maxOrderable: 4,
             brand: {
               "id": 267,
               "title": "اوه",
@@ -129,13 +134,14 @@ export const data = {
             productId: null,
             containerPrice: 0,
             vat: 0,
+            availableInStock: true,
             images: [
               {
                 "imageThumbnailSrc": "6.jpg",
                 "imageSrc": "6.jpg"
               }
             ],
-            capacity: 4,
+            maxOrderable: 4,
             brand: {
               "id": 267,
               "title": "اوه",
@@ -152,13 +158,14 @@ export const data = {
             productId: null,
             containerPrice: 0,
             vat: 0,
+            availableInStock: true,
             images: [
               {
                 "imageThumbnailSrc": "7.jpg",
                 "imageSrc": "7.jpg"
               }
             ],
-            capacity: 4,
+            maxOrderable: 4,
             brand: {
               "id": 267,
               "title": "اوه",
@@ -175,13 +182,14 @@ export const data = {
             productId: null,
             containerPrice: 0,
             vat: 0,
+            availableInStock: true,
             images: [
               {
                 "imageThumbnailSrc": "8.jpg",
                 "imageSrc": "8.jpg"
               }
             ],
-            capacity: 4,
+            maxOrderable: 4,
             brand: {
               "id": 267,
               "title": "اوه",
@@ -198,13 +206,14 @@ export const data = {
             productId: null,
             containerPrice: 0,
             vat: 0,
+            availableInStock: true,
             images: [
               {
                 "imageThumbnailSrc": "9.jpg",
                 "imageSrc": "9.jpg"
               }
             ],
-            capacity: 4,
+            maxOrderable: 4,
             brand: {
               "id": 267,
               "title": "اوه",

@@ -6,6 +6,7 @@ import * as serviceWorker from './serviceWorker';
 
 import Layout from './components/Layout/Layout';
 import { Provider } from 'react-redux';
+
 // import STORE from './iRedux';
 
 
@@ -16,7 +17,7 @@ import $ from 'jquery';
 import 'popper.js/dist/popper';
 // import Popper from 'popper.js';
 import 'bootstrap/dist/js/bootstrap';
-
+import 'react-redux-toastr/lib/css/react-redux-toastr.min.css'
 
 import { BrowserRouter as Router, Route, Redirect, Switch } from "react-router-dom";
 import CategoryPage from './components/CategoryPage';
@@ -34,6 +35,7 @@ ReactDOM.render(
             <Switch>
               <Route path="/" exact={true} component={App} />
               <Route path='/categories/:catID?' exact={true} component={CategoryPage} />
+              <Route path='/categories/:catID?/subcat/:subcatID?' exact={true} component={CategoryPage} />
               <Route path='/checkout' component={Checkout} />
               {/* <Route path='/categories/sweets' component={CategoryPage} /> */}
               <Redirect to="/" />

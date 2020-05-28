@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addToCart } from '../../iRedux/Actions/cart_Actions';
+import { setTextForToast } from '../../iRedux/Actions/common';
 
 import ProductBox from './ProductBox';
 import Banner from '../Banner';
@@ -12,8 +13,8 @@ import 'flickity/css/flickity.css';
 import './landingPage.css';
 import ProductModal from '../Common/ProductModal';
 
+import { toastr } from 'react-redux-toastr'
 
-// import toastr from 'toastr/toastr'
 
 
 class Landing extends Component {
@@ -113,12 +114,10 @@ class Landing extends Component {
         });
 
 
-        // toastr.info('sonme test ...');
     }// end componentDidMount
 
 
     boxClickHandler = (p) => {
-        // toastr.info('sonme test ...');
         this.setState({ showProductModal: true, selectedProduct: p });
     }
 
@@ -127,9 +126,38 @@ class Landing extends Component {
     }
 
     render() {
+
+        // const toastrOptions = {
+        //     timeOut: 4000, // by setting to 0 it will prevent the auto close
+        //     //icon: (<myCustomIconOrAvatar />), // You can add any component you want but note that the width and height are 70px ;)
+        //     //onShowComplete: () => console.log('SHOW: animation is done'),
+        //     //onHideComplete: () => console.log('HIDE: animation is done'),
+        //     //onCloseButtonClick: () => console.log('Close button was clicked'),
+        //     //onToastrClick: () => { console.log('Toastr was clicked'); },
+        //     showCloseButton: false, // false by default
+        //     closeOnToastrClick: false, // false by default, this will close the toastr when user clicks on it
+        //     component: ( // this option will give you a func 'remove' as props
+        //         <div myProp="myValue" style={{ fontFamily: 'IRANSans' }}>
+        //             <span>متن نمونه جهت تست</span>
+        //         </div>
+        //     )
+        // }
+
         return (
             <>
                 <div>
+
+                    {/* <button className="btn btn-primary"
+                        // onClick={() => toastr.error('بروز خطا', 'لطفا مجددا سعی کنید', toastrOptions)}
+                        onClick={() => toastr.success('بروز خطا', toastrOptions)}
+                        type="button">Toastr New
+                    </button> */}
+
+
+
+
+
+
                     <section style={{
                         boxShadow: '0 8px 6px -6px rgba(68, 68, 68, 0.35)', margin: '40px auto', padding: '5px', paddingBottom: '40px',
                         background: 'linear-gradient(135deg, rgb(255, 255, 255) 20%, rgb(255, 255, 255) 80%)', borderRadius: '8px',
@@ -144,7 +172,7 @@ class Landing extends Component {
                                 this.props.products != null &&
                                 this.props.products.map(p =>
                                     <div className="carousel-cell" key={p.id}>
-                                        <ProductBox product={p} add2Cart={this.props.addToCart} boxClick={this.boxClickHandler}/>
+                                        <ProductBox product={p} add2Cart={this.props.addToCart} boxClick={this.boxClickHandler} writeToastText={this.props.setTextForToast} />
                                     </div>
                                 )
                             }
@@ -166,7 +194,7 @@ class Landing extends Component {
                                 this.props.products != null &&
                                 this.props.products.map(p =>
                                     <div className="carousel-cell" key={p.id}>
-                                        <ProductBox product={p} add2Cart={this.props.addToCart} boxClick={this.boxClickHandler}/>
+                                        <ProductBox product={p} add2Cart={this.props.addToCart} boxClick={this.boxClickHandler} writeToastText={this.props.setTextForToast}/>
                                     </div>
                                 )
                             }
@@ -195,7 +223,7 @@ class Landing extends Component {
                                 this.props.products != null &&
                                 this.props.products.map(p =>
                                     <div className="carousel-cell" key={p.id}>
-                                        <ProductBox product={p} add2Cart={this.props.addToCart} boxClick={this.boxClickHandler}/>
+                                        <ProductBox product={p} add2Cart={this.props.addToCart} boxClick={this.boxClickHandler} writeToastText={this.props.setTextForToast}/>
                                     </div>
                                 )
                             }
@@ -211,7 +239,7 @@ class Landing extends Component {
                 </div>
                 {
                     this.state.showProductModal &&
-                    <ProductModal close={this.closeModal} product={this.state.selectedProduct} add2Cart={this.props.addToCart} />
+                    <ProductModal close={this.closeModal} product={this.state.selectedProduct} add2Cart={this.props.addToCart} writeToastText={this.props.setTextForToast} />
                 }
             </>
         );
@@ -224,7 +252,8 @@ const mapStateToProps = (store) => ({
 })
 
 const mapDispatchToProps = {
-    addToCart
+    addToCart,
+    setTextForToast
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Landing);

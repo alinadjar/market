@@ -5,6 +5,8 @@ import { connect } from 'react-redux';
 
 import './loader.css';
 
+import ReduxToastr from 'react-redux-toastr'
+
 class Layout extends Component {
     constructor(props) {
         super(props);
@@ -25,6 +27,19 @@ class Layout extends Component {
                 }
                 
                 <SidePanelBasket />
+
+                <ReduxToastr
+                        timeOut={4000}
+                        newestOnTop={false}
+                        preventDuplicates
+                        position="bottom-center"
+                        getState={(state) => state.toastr || "hey... :)"} // This is the default
+                        transitionIn="fadeIn"
+                        transitionOut="fadeOut"
+                        closeOnToastrClick={false}
+                        showCloseButton={false}  
+                        progressBar
+                        closeOnToastrClick />
             </React.Fragment>
         );
     }

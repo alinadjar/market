@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { toastr } from 'react-redux-toastr';
+import MyToastText from '../ToastText';
 
 import './productModal.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -13,6 +15,14 @@ class ProductModal extends Component {
     render() {
 
         const p = this.props.product;
+        const toastrOptions = {
+            timeOut: 4000,
+            showCloseButton: false, // false by default
+            closeOnToastrClick: false, // false by default, this will close the toastr when user clicks on it
+            component: ( // this option will give you a func 'remove' as props
+                <MyToastText />
+            )
+        }
 
         return (
             <div className="mymodal bd-example-modal" id="exampleModalCenter" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true"
@@ -45,10 +55,20 @@ class ProductModal extends Component {
                                                 color: '#070'
                                             }}>{p.price - p.discount} تومان</span>
                                         </b>
-                                        <button type="button" className="btn btn-success"
+                                        {
+                                            p.availableInStock ? 
+                                            <button type="button" className="btn btn-success"
                                             style={{ margin: '0 auto', display: 'block', fontSize: '0.8rem', marginTop: '10%' }}
-                                            onClick={ () => this.props.add2Cart(p) }
-                                            >اضافه به سبد خرید  <FontAwesomeIcon icon={faPlus} size='sm' /></button>
+                                            onClick={() => {
+                                                this.props.add2Cart(p);
+                                                this.props.writeToastText(`${p.title} به سبد خرید اضافه شد`);
+                                                toastr.success('', toastrOptions);
+                                                this.props.close();
+                                            }}
+                                        >اضافه به سبد خرید  <FontAwesomeIcon icon={faPlus} size='sm' /></button>
+                                        :
+                                        <img src={require('../../../images/soldout.png')} alt='some txt' style={{ width: '100%', height: '100px', position: 'absolute', left: 0 }} />
+                                        }
                                     </div>
                                 </div>
                                 <div className='col-12 col-md-6' style={{ display: 'flex', justifyContent: 'space-evenly', position: 'relative' }}>

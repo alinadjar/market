@@ -1,10 +1,11 @@
-import { toggleLOADING, showBasketSidePanel } from '../Actions/types';
+import { toggleLOADING, showBasketSidePanel, SET_TXT_4_TOAST } from '../Actions/types';
 
 
 
 const initialState = {
     loading: false,
-    showBasketPanel: false
+    showBasketPanel: false,
+    myToastText: null
 }
 
 export default function (state = initialState, action) {
@@ -18,6 +19,11 @@ export default function (state = initialState, action) {
             return {
                 ...state,
                 showBasketPanel: !state.showBasketPanel
+            }
+        case SET_TXT_4_TOAST:
+            return {
+                ...state,
+                myToastText: action.payload
             }
         default:
             return state;

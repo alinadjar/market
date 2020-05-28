@@ -22,4 +22,6 @@ export const CART_UPDATE = 'CART_UPDATE';
 export const CART_CLEAR = 'CART_CLEAR';
 
 
+// set toast text
+export const SET_TXT_4_TOAST = 'SET_TXT_4_TOAST';
 

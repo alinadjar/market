@@ -5,6 +5,7 @@ import reduxPromise from 'redux-promise';
 import commonReducer from './Reducers/common';
 import cartReducer from './Reducers/cart_Reducer';
 import shopReducer from './Reducers/shop_Reducer';
+import {reducer as toastrReducer} from 'react-redux-toastr'
 
 
 import { persistStore, persistReducer } from 'redux-persist'
@@ -24,6 +25,7 @@ const rootReducer = combineReducers({
     common: commonReducer,
     cart: cartReducer,
     shop: shopReducer,
+    toastr: toastrReducer // <- Mounted at toastr.
 });
 
 
